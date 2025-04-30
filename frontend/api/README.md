@@ -1,4 +1,4 @@
-# Dokumentasi API Folder
+# 📁 Folder `api`
 
 Folder api pada proyek ini berfungsi untuk menyimpan berbagai file yang berhubungan dengan permintaan (request) API. Setiap file dalam folder ini biasanya berisi fungsi-fungsi API yang digunakan untuk mengakses data atau melakukan aksi tertentu melalui endpoint- endpoint yang disediakan oleh server.
 
@@ -8,7 +8,7 @@ Pada contoh yang ada, ada file sass.api.js yang berisi fungsi apiGetAllSettings.
 
 ## Contoh fungsi di sass.api.js:
 
-```
+```js
 import { httpClient } from "@/utils/httpClient"
 
 const apiGetAllSettings = (version) => httpClient.get(`${version}/cms/app/settings`)
@@ -28,7 +28,7 @@ httpClient menggunakan library Axios untuk melakukan permintaan HTTP dan menanga
 
 ## Contoh penggunaan httpClient di apiGetAllSettings:
 
-```
+```js
 const apiGetAllSettings = (version) => httpClient.get(`${version}/cms/app/settings`)
 ```
 
