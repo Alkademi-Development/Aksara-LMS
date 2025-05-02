@@ -38,7 +38,6 @@ class HTTPClient {
   }
 
   get(url, config = {}) {
-    console.log(this.baseURL)
     return this.instance.get(url, config)
   }
 
