@@ -4,28 +4,31 @@
         <button
           v-if="breadcrumbs.length > 1"
           @click="goBack"
-          class="text-blue-500 hover:underline whitespace-nowrap mr-2"
+          class="bg-white px-2 py-1 rounded border text-blue-500 hover:underline whitespace-nowrap me-2"
         >
-          Go Back
+          <i class="ri-arrow-left-s-line"></i>
         </button>
   
         <template v-for="(crumb, index) in breadcrumbs" :key="index">
             <span
                 v-if="index === breadcrumbs.length - 1"
-                class="text-gray-900 font-semibold whitespace-nowrap"
+                class="fs-6 text-gray-900 font-semibold whitespace-nowrap"
             >
                 {{ crumb.title }}
             </span>
             <NuxtLink
                 v-else
                 :to="crumb.to"
-                class="text-gray-700 hover:underline whitespace-nowrap"
+                class="fs-6 text-gray-700 hover:underline whitespace-nowrap"
             >
                 {{ crumb.title }}
             </NuxtLink>
-            <span v-if="index < breadcrumbs.length - 1" class="mx-1">></span>
+            <span v-if="index < breadcrumbs.length - 1" class="mx-1">
+              <i class="ri-arrow-right-s-line"></i>
+            </span>
         </template>
       </div>
+      <h2 class="mt-3 fw-medium">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
     </div>
   </template>
   
