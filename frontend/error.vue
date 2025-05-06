@@ -32,18 +32,6 @@ useHead({
   title: `${props?.error?.statusCode} - ${titleErrorMessage.value}`,
 })
 
-const errorMessage = computed(() => {
-    // console.log(props?.error) // To know the internal server error
-    switch (props.error?.statusCode) {
-      case 404:
-          return "Whoops! The page you're looking for doesn't exist"
-      case 500:
-          return "Oops! Something went wrong on our server"
-      default:
-          return props.error?.message
-    }
-})
-
 const handleError = () => clearError({ redirect: "/" })
 
 </script>
