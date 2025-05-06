@@ -6,7 +6,7 @@
           @click="goBack"
           class="text-blue-500 hover:underline whitespace-nowrap mr-2"
         >
-          ← Go Back
+          Go Back
         </button>
   
         <template v-for="(crumb, index) in breadcrumbs" :key="index">
