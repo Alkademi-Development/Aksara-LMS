@@ -14,5 +14,8 @@ export default defineNuxtConfig({
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
+  components: [
+    '~/components'
+  ],
   plugins: ['~/plugins/vuex.js']
 })
