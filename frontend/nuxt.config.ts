@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
-  css: ['@/assets/css/main.scss'],
+  css: ['@/assets/css/main.scss', 'remixicon/fonts/remixicon.css'],
   components: [
     '~/components'
   ],
