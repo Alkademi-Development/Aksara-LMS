@@ -13,7 +13,7 @@ const message = computed(() => store.state.class.message)
 const data = computed(() => store.state.class.data)
 
 onMounted(async () => {
-  await store.dispatch('class/overview', { slug: 'fundamental-c---programming' })
+  await store.dispatch('courses/getCoursesById', { slug: 1 })
 })
 
 </script>
