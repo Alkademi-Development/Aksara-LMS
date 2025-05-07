@@ -6,6 +6,10 @@
 
 <script setup>
 
+definePageMeta({
+  middleware: 'redirect-root',
+});
+
 </script>
 
 <style scoped>
