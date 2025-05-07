@@ -14,14 +14,14 @@
                 v-if="index === breadcrumbs.length - 1"
                 class="fs-6 text-gray-900 font-semibold whitespace-nowrap"
             >
-                {{ crumb.title }}
+                {{ crumb.truncateTitle }}
             </span>
             <NuxtLink
                 v-else
                 :to="crumb.to"
                 class="fs-6 text-gray-700 hover:underline whitespace-nowrap"
             >
-                {{ crumb.title }}
+                {{ crumb.truncateTitle }}
             </NuxtLink>
             <span v-if="index < breadcrumbs.length - 1" class="mx-1">
               <i class="ri-arrow-right-s-line"></i>
@@ -56,7 +56,8 @@
       const translated = breadcrumbTitleMap[segment] || formatBreadcrumbSegment(segment)
       crumbs.push({
         to: pathAcc,
-        title: truncateWords(translated)
+        truncateTitle: truncateWords(translated),
+        title: translated
       })
     }
   
@@ -78,21 +79,24 @@
   </script>
   
 <style scoped>
-.breadcrumb-wrapper {
-  width: 100%;
-  overflow-x: auto;
-}
-
 .breadcrumb-scroll {
   display: flex;
   align-items: center;
   white-space: nowrap;
   gap: 0.5rem;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
   padding-bottom: 4px;
 
-  /* Hide scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.breadcrumb-wrapper {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {

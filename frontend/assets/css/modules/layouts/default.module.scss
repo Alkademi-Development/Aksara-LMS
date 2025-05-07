@@ -1,0 +1,43 @@
+@use '@/assets/css/utilities/_colors' as *;
+
+.layoutContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: white;
+  border-right: 1px solid $grey;
+  transition: all 0.1s ease;
+  z-index: 50;
+}
+
+.sidebarAbsolute {
+  position: absolute;
+}
+
+.sidebarRelative {
+  position: relative;
+}
+
+.mainContent {
+  flex-grow: 1;
+  min-height: 100vh;
+  background-color: $light; // Bootstrap light
+}
+
+.mainInner {
+  padding: 1rem;
+}
+
+// Transition
+.fadeRightEnterFrom,
+.fadeRightLeaveTo {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.fadeRightEnterActive,
+.fadeRightLeaveActive {
+  transition: all 0.1s ease;
+}
