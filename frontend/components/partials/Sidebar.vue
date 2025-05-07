@@ -22,21 +22,21 @@
 
         <nav class="d-flex flex-column flex-grow-1">
             <NuxtLink to="/dashboard/classroom" class="py-3 px-5 d-flex align-items-center gap-3">
-                <i :class="`${route.path === '/dashboard/classroom/' ? 'text-primary' : 'text-secondary'} ri-stack-fill fs-5`"></i>
-                <span :class="`${route.path === '/dashboard/classroom/' ? 'text-black' : 'text-secondary'} fs-6 fw-bolder`">Kelas</span>
+                <i :class="`${route.path.includes('/dashboard/classroom') ? 'text-primary' : 'text-secondary'} ri-stack-fill fs-5`"></i>
+                <span :class="`${route.path.includes('/dashboard/classroom') ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Kelas</span>
             </NuxtLink>
             <NuxtLink to="/dashboard/reviews" class="py-3 px-5 d-flex align-items-center gap-3">
-                <i :class="`${route.path === '/dashboard/reviews/' ? 'text-primary' : 'text-secondary'} ri-file-search-line text-secondary fs-5`"></i>
-                <span :class="`${route.path === '/dashboard/reviews/' ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Review Tugas</span>
+                <i :class="`${route.path.includes('/dashboard/reviews') ? 'text-primary' : 'text-secondary'} ri-file-search-line text-secondary fs-5`"></i>
+                <span :class="`${route.path.includes('/dashboard/reviews') ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Review Tugas</span>
             </NuxtLink>
             <NuxtLink to="/dashboard/schedules" class="py-3 px-5 d-flex align-items-center gap-3">
-                <i :class="`${route.path === '/dashboard/schedules/' ? 'text-primary' : 'text-secondary'} ri-calendar-event-fill text-secondary fs-5`"></i>
-                <span :class="`${route.path === '/dashboard/schedules/' ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Jadwal Kegiatan</span>
+                <i :class="`${route.path.includes('/dashboard/schedules') ? 'text-primary' : 'text-secondary'} ri-calendar-event-fill text-secondary fs-5`"></i>
+                <span :class="`${route.path.includes('/dashboard/schedules') ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Jadwal Kegiatan</span>
             </NuxtLink>
             <hr>
             <NuxtLink to="/dashboard/studio" class="py-3 px-5 d-flex align-items-center gap-3">
-                <i :class="`${route.path === '/dashboard/studio/' ? 'text-primary' : 'text-secondary'} ri-code-box-line text-secondary fs-5`"></i>
-                <span :class="`${route.path === '/dashboard/studio/' ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Studio</span>
+                <i :class="`${route.path.includes('/dashboard/studio') ? 'text-primary' : 'text-secondary'} ri-code-box-line text-secondary fs-5`"></i>
+                <span :class="`${route.path.includes('/dashboard/studio') ? 'text-black' : 'text-secondary'} fs-6 fw-normal`">Studio</span>
             </NuxtLink>
         </nav>
 
