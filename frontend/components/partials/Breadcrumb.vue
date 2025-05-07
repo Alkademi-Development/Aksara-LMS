@@ -12,14 +12,14 @@
         <template v-for="(crumb, index) in breadcrumbs" :key="index">
             <span
                 v-if="index === breadcrumbs.length - 1"
-                class="fs-6 text-gray-900 font-semibold whitespace-nowrap"
+                class="fs-7 text-gray-900 font-semibold whitespace-nowrap"
             >
                 {{ crumb.truncateTitle }}
             </span>
             <NuxtLink
                 v-else
                 :to="crumb.to"
-                class="fs-6 text-gray-700 hover:underline whitespace-nowrap"
+                class="fs-7 text-gray-700 hover:underline whitespace-nowrap"
             >
                 {{ crumb.truncateTitle }}
             </NuxtLink>
@@ -28,7 +28,7 @@
             </span>
         </template>
       </div>
-      <h2 class="mt-3 fw-medium">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
+      <h2 class="my-3 fw-medium">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
     </div>
   </template>
   
@@ -56,7 +56,7 @@
       const translated = breadcrumbTitleMap[segment] || formatBreadcrumbSegment(segment)
       crumbs.push({
         to: pathAcc,
-        truncateTitle: truncateWords(translated),
+        truncateTitle: String(truncateWords(translated))?.toUpperCase(),
         title: translated
       })
     }
