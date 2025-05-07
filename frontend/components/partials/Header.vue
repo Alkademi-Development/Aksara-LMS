@@ -17,10 +17,6 @@
                         <i :class="`${sidebarShowIcon} text-lg`"></i>
                     </button>
                     <component :is="actionContentComponent" v-if="actionContentComponent" />
-                    <!-- <button type="button" class="mt-3 px-3 py-2 fs-6 bg-primary text-white rounded d-flex align-items-center gap-2">
-                        <i class="ri-add-fill"></i>
-                        Kelas
-                    </button> -->
                 </div>
             </div>
             
@@ -31,8 +27,7 @@
 
 <script setup>
 import Breadcrumb from "@/components/partials/Breadcrumb.vue"
-import FilterTabsClassroom from "@/components/partials/header/extras/FilterTabsClassroom.vue"
-import BadgeStatusRegistration from "@/components/partials/header/actions/BadgeStatusRegistration.vue"
+import { extraHeaderComponents, actionHeaderComponents } from '@/utils/constants/header'
 
 const props = defineProps({
   isSidebarVisible: Boolean
@@ -44,15 +39,15 @@ const sidebarShowIcon = computed(() =>
 
 const route = useRoute();
 
-const extraHeaderComponent = {
-    'dashboard-classroom': FilterTabsClassroom,
-}
-const extraContentComponent = computed(() => extraHeaderComponent[route.name] || null);
+const extraContentComponent = computed(() => {
+  const loader = extraHeaderComponents[route.name]
+  return loader ? defineAsyncComponent(loader) : null
+})
 
-const actionHeaderComponent = {
-    'dashboard-classroom-slug': BadgeStatusRegistration,
-}
-const actionContentComponent = computed(() => actionHeaderComponent[route.name] || null)
+const actionContentComponent = computed(() => {
+  const loader = actionHeaderComponents[route.name]
+  return loader ? defineAsyncComponent(loader) : null
+})
 
 </script>
 
