@@ -1,14 +1,15 @@
 <template>
     <header class="position-sticky top-0">
         <div
-            class="bg-white border-bottom px-4 pt-5"
+            class="bg-white border-bottom container px-4 pt-5"
         >
             <div class="d-grid" style="grid-template-columns: 1fr auto; align-items: start; gap: 1rem; min-width: 0;">
                 <div class="overflow-hidden">
                     <Breadcrumb />
+                    <component :is="actionContentComponent" v-if="actionContentComponent && isMobile" />
                 </div>
                 
-                <div class="d-flex flex-column align-items-end">
+                <div class="d-flex flex-column align-items-end h-100 justify-content-start justify-content-md-end">
                     <button
                         type="button"
                         @click="$emit('toggle-sidebar')"
@@ -16,7 +17,9 @@
                     >
                         <i :class="`${sidebarShowIcon} text-lg`"></i>
                     </button>
-                    <component :is="actionContentComponent" v-if="actionContentComponent" />
+                    <div class="d-none d-sm-block">
+                        <component :is="actionContentComponent" v-if="actionContentComponent && !isMobile" />
+                    </div>
                 </div>
             </div>
             
@@ -47,6 +50,19 @@ const extraContentComponent = computed(() => {
 const actionContentComponent = computed(() => {
   const loader = actionHeaderComponents[route.name]
   return loader ? defineAsyncComponent(loader) : null
+})
+
+const isMobile = ref(false)
+
+const updateIsMobile = () => isMobile.value = window.innerWidth < 576;
+
+onMounted(() => {
+  updateIsMobile()
+  window.addEventListener('resize', updateIsMobile)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateIsMobile)
 })
 
 </script>

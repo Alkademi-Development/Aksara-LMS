@@ -10,10 +10,10 @@
                     <i class="ri-more-line fs-1"></i>
                 </button>
             </div>
-            <img src="https://drive.alkademi.id/v1/upload/class/1746534916220.png" alt="Thumbnail" width="150" class="box-image max-w-xs mt-4 mb-5">
+            <img src="https://drive.alkademi.id/v1/upload/class/1746534916220.png" alt="Thumbnail" class="img-cover max-w-xs mt-4 mb-5" style="max-height: 45px;">
         </div>
         <div class="card-body flex-grow-1">
-            <NuxtLink to="/dashboard/classroom">
+            <NuxtLink to="/dashboard/classroom/fullstack-programming">
                 <h4 class="text-base fw-bolder text-sm text-limit limit-2">AlkademiTalk #6: Mastering Coding Assessments: Strategies from a Competitive Programming Enthusiast</h4>
             </NuxtLink>
             <p class="mt-3 mb-5 text-sm text-limit limit-2">

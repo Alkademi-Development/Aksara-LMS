@@ -4,7 +4,7 @@
         <aside
           v-if="isSidebarVisible"
           :class="`position-fixed top-0 start-0 min-vh-100 h-100 bg-white border-end`"
-          style="width: 250px; z-index: 1030;"
+          style="width: 250px; z-index: 100;"
         >
           <Sidebar />
         </aside>
@@ -18,7 +18,7 @@
           :isSidebarVisible="isSidebarVisible"
           @toggle-sidebar="isSidebarVisible = !isSidebarVisible"
         />
-        <div class="container pt-4 pb-8">
+        <div class="container px-3 pt-4 pb-8">
           <slot></slot>
         </div>
       </div>
@@ -35,7 +35,7 @@ const isSidebarVisible = ref(true)
 const isMobile = ref(false)
 
 const updateIsMobile = () => {
-  isMobile.value = window.innerWidth < 1200
+  isMobile.value = window.innerWidth < 1100
 
   if (isMobile.value) {
     isSidebarVisible.value = false  
