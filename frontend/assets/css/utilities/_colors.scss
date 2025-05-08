@@ -1,6 +1,6 @@
 :root {
     --primary: #2096C4;
-    --secondary: #7A4DFF;
+    --secondary: #dee2e6;
     --yellow: #F2C94C;
     --navy: #172b4d;
     --mint: #CEF9C6;
@@ -16,10 +16,11 @@
     --grey2: #6c757d;
     --grey3: #495057;
     --light: #f7fafc;
+    --green: #2dce89;
 }
 
 $primary: #2096C4 !default;
-$secondary: #7A4DFF !default;
+$secondary: #dee2e6 !default;
 $yellow: #F2C94C !default;
 $navy: #172b4d !default;
 $mint: #CEF9C6 !default;
@@ -35,3 +36,4 @@ $grey: #dee2e6 !default;
 $grey2: #6c757d !default;
 $grey3: #495057 !default;
 $light: #f7fafc !default;
+$green: #2dce89 !default;
