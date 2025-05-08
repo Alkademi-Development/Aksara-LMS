@@ -1,22 +1,27 @@
 <template>
     <div class="d-flex min-vh-100">
-        <transition name="fade-right">
-            <aside
-                v-show="isSidebarVisible"
-                :class="`${isMobile ? 'position-absolute' : 'position-relative'} bg-white border-end sidebar-transition`"
-            >
-                <Sidebar />
-            </aside>
-        </transition>
-        <main class="flex-grow-1 min-vh-100 bg-light">
-            <Header 
-                :isSidebarVisible="isSidebarVisible"
-                @toggle-sidebar="isSidebarVisible = !isSidebarVisible" 
-            />
-            <div class="p-4">
-                <slot></slot>
-            </div>
-        </main>
+      <transition name="fade-right">
+        <aside
+          v-if="isSidebarVisible"
+          :class="`position-fixed top-0 start-0 min-vh-100 h-100 bg-white border-end`"
+          style="width: 250px; z-index: 1030;"
+        >
+          <Sidebar />
+        </aside>
+      </transition>
+  
+      <div
+        class="flex-grow-1 min-vh-100 bg-light"
+        :style="!isMobile && isSidebarVisible ? 'padding-left: 250px;' : ''"
+      >
+        <Header
+          :isSidebarVisible="isSidebarVisible"
+          @toggle-sidebar="isSidebarVisible = !isSidebarVisible"
+        />
+        <div class="container pt-4 pb-8">
+          <slot></slot>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -31,7 +36,12 @@ const isMobile = ref(false)
 
 const updateIsMobile = () => {
   isMobile.value = window.innerWidth < 1200
-  if (window.innerWidth > 1200) isSidebarVisible.value = true;
+
+  if (isMobile.value) {
+    isSidebarVisible.value = false  
+  } else {
+    isSidebarVisible.value = true 
+  }
 }
 
 onMounted(() => {
@@ -45,8 +55,9 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-.fade-right-transition {
-  transition: all 0.1s ease;
+.fade-right-enter-active,
+.fade-right-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .fade-right-enter-from,
@@ -55,8 +66,9 @@ onBeforeUnmount(() => {
   transform: translateX(-100%);
 }
 
-.fade-right-enter-active,
-.fade-right-leave-active {
-  transition: all 0.1s ease;
+.fade-right-enter-to,
+.fade-right-leave-from {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>

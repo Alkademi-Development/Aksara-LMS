@@ -12,14 +12,14 @@
         <template v-for="(crumb, index) in breadcrumbs" :key="index">
             <span
                 v-if="index === breadcrumbs.length - 1"
-                class="fs-7 text-gray-900 font-semibold whitespace-nowrap"
+                class="text-sm text-gray-900 font-semibold whitespace-nowrap"
             >
                 {{ crumb.truncateTitle }}
             </span>
             <NuxtLink
                 v-else
                 :to="crumb.to"
-                class="fs-7 text-gray-700 hover:underline whitespace-nowrap"
+                class="text-sm text-gray-700 hover:underline whitespace-nowrap"
             >
                 {{ crumb.truncateTitle }}
             </NuxtLink>

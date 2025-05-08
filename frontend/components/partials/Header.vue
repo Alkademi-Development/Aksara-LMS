@@ -1,5 +1,5 @@
 <template>
-    <header class="relative">
+    <header class="position-sticky top-0">
         <div
             class="bg-white border-bottom px-4 pt-5"
         >
