@@ -28,55 +28,49 @@
             </span>
         </template>
       </div>
-      <h2 class="mt-3 mb-2 fw-medium">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
     </div>
   </template>
   
 <script setup>
-  import { useRoute, useRouter } from 'vue-router'
-  import { computed } from 'vue'
-  import { breadcrumbTitleMap } from '~/utils/constants/breadcrumb'
-  import { formatBreadcrumbSegment, truncateWords } from '~/utils/breadcrumb'
-  
-  const route = useRoute()
-  const router = useRouter()
-  
-  const segments = computed(() => route.path.split('/').filter(Boolean))
-  
-  const breadcrumbs = computed(() => {
-    const crumbs = []
-    let pathAcc = ''
-  
-    for (const segment of segments.value) {
-      // Skip numeric segments
-      if (!isNaN(Number(segment))) continue
-  
-      pathAcc += `/${segment}`
-  
-      const translated = breadcrumbTitleMap[segment] || formatBreadcrumbSegment(segment)
-      crumbs.push({
-        to: pathAcc,
-        truncateTitle: String(truncateWords(translated))?.toUpperCase(),
-        title: translated
-      })
-    }
-  
-    return crumbs
-  })
-  
-  // Go back to previous path
-  const goBack = () => {
-    const crumbs = breadcrumbs.value
-    if (crumbs.length > 1) {
-      const target = crumbs[crumbs.length - 2]
-      router.push(target.to)
-    }
+import { breadcrumbTitleMap } from '~/utils/constants/breadcrumb'
+import { formatBreadcrumbSegment, truncateWords } from '~/utils/breadcrumb'
+
+const route = useRoute()
+const router = useRouter()
+
+const segments = computed(() => route.path.split('/').filter(Boolean))
+
+const breadcrumbs = computed(() => {
+  const crumbs = []
+  let pathAcc = ''
+
+  for (const segment of segments.value) {
+    // Skip numeric segments
+    if (!isNaN(Number(segment))) continue
+
+    pathAcc += `/${segment}`
+
+    const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
+    crumbs.push({
+      to: pathAcc,
+      truncateTitle: String(truncateWords(translated))?.toUpperCase(),
+      title: translated
+    })
   }
+
+  return crumbs
+})
+
+// Go back to previous path
+const goBack = () => {
+  const crumbs = breadcrumbs.value
+  if (crumbs.length > 1) {
+    const target = crumbs[crumbs.length - 2]
+    router.push(target.to)
+  }
+}
   
-  // Manage overflow - simple rule: show first 3, rest in dropdown
-  const visibleBreadcrumbs = computed(() => breadcrumbs.value.slice(0, 3))
-  const hiddenBreadcrumbs = computed(() => breadcrumbs.value.slice(3))
-  </script>
+</script>
   
 <style scoped>
 .breadcrumb-scroll {
