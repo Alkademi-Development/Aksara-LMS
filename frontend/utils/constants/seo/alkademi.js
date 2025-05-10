@@ -108,13 +108,13 @@ const ALKADEMI = {
     "dashboard-classroom": {
       title: {
         isDynamic: false,
-        static: "Classroom",
+        static: "Kelas",
         withSitename: true,
       },
       og: {
         title: {
           isDynamic: false,
-          static: "Classroom",
+          static: "Kelas",
           withSitename: true,
         },
         image: {
@@ -126,7 +126,7 @@ const ALKADEMI = {
       twitter: {
         title: {
           isDynamic: false,
-          static: "Classroom",
+          static: "Kelas",
           withSitename: true,
         },
         image: {

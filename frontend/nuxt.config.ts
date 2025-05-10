@@ -1,3 +1,5 @@
+import sass from 'sass';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -14,8 +16,15 @@ export default defineNuxtConfig({
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
+  css: ['@/assets/css/main.scss', 'remixicon/fonts/remixicon.css'],
   components: [
     '~/components'
   ],
-  plugins: ['~/plugins/vuex.js']
+  modules: [
+    'nuxt-monaco-editor',
+  ],
+  monacoEditor: {
+    locale: 'en'
+  },
+  plugins: ['~/plugins/vuex.js', '~/plugins/bootstrapClient.js']
 })

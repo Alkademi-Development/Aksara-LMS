@@ -7,11 +7,11 @@
 <script setup>
 
 definePageMeta({
-  middleware: 'redirect-root',
-});
+    layout: 'blank'
+})
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -1,0 +1,31 @@
+@use '@/assets/css/utilities/_colors' as *;
+
+.layoutContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: $white;
+  border-right: 1px solid $grey;
+  transition: all 0.1s ease;
+  z-index: 50;
+
+  &.absolute {
+    position: absolute;
+  }
+
+  &.relative {
+    position: relative;
+  }
+}
+
+.mainContent {
+  flex-grow: 1;
+  min-height: 100vh;
+  background-color: $light;
+}
+
+.mainInner {
+  padding: 1rem;
+}

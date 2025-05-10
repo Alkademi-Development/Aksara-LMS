@@ -1,0 +1,69 @@
+@use '@/assets/css/utilities/_colors' as *;
+
+.breadcrumb-wrapper {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.breadcrumbScroll {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  padding-bottom: 4px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+  
+.backButton {
+    background-color: $light;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid $grey;
+    color: var(--primary);
+    white-space: nowrap;
+    margin-right: 0.5rem;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+}
+  
+.breadcrumbLink {
+    font-size: 1rem;
+    color: $grey3;
+    text-decoration: none;
+    white-space: nowrap;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+}
+  
+.breadcrumbCurrent {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $black;
+    white-space: nowrap;
+}
+  
+.breadcrumbSeparator {
+    margin: 0 0.25rem;
+}
+  
+.breadcrumbHeading {
+    margin-top: 0.75rem;
+    font-weight: 500;
+}
+  

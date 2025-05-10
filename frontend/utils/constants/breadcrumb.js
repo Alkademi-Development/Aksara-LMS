@@ -1,9 +1,7 @@
 export const breadcrumbTitleMap = {
-    achievement: 'Raport',
-    class: 'Class',
-    courses: 'Courses',
-    modules: 'Modules',
-    dashboard: 'Dashboard',
-    detail: 'Detail'
+    '/dashboard/achievement': 'Raport',
+    '/dashboard/classroom': 'Kelas',
+    '/dashboard/classroom/create': 'Buat Kelas',
+    '/dashboard/classroom/courses': 'Materi',
   }
   

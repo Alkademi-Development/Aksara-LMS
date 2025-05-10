@@ -1,0 +1,28 @@
+.min-h-xs { min-height: 22rem; }      // 320px
+.min-h-sm { min-height: 24rem; }      // 384px
+.min-h-md { min-height: 28rem; }      // 448px
+.min-h-lg { min-height: 32rem; }      // 512px
+.min-h-xl { min-height: 36rem; }      // 576px
+.min-h-2xl { min-height: 42rem; }     // 672px
+.min-h-3xl { min-height: 48rem; }     // 768px
+.min-h-4xl { min-height: 56rem; }     // 896px
+.min-h-5xl { min-height: 64rem; }     // 1024px
+.min-h-6xl { min-height: 72rem; }     // 1152px
+.min-h-7xl { min-height: 80rem; }     // 1280px
+.min-h-full { min-height: 100%; }
+
+@media (min-width: 640px) {
+  .sm\:min-h-md { min-height: 28rem; }
+}
+
+@media (min-width: 768px) {
+  .md\:min-h-lg { min-height: 32rem; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:min-h-xl { min-height: 36rem; }
+}
+
+@media (min-width: 1280px) {
+  .xl\:min-h-2xl { min-height: 42rem; }
+}

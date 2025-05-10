@@ -1,17 +1,13 @@
 <template>
     <div>
-
+        Create Classroom
     </div>
 </template>
 
 <script setup>
 
-definePageMeta({
-  middleware: 'redirect-root',
-});
-
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -1,0 +1,15 @@
+<template>
+    <div class="d-flex align-items-center gap-2 mt-2 mt-sm-0">
+        <span class="px-4 py-2 rounded bg-primary text-white fs-7">Pendaftaran</span>
+        <span class="px-4 py-2 rounded bg-info text-white fs-7">Berlangsung</span>
+    </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -1,0 +1,32 @@
+export const extraHeaderComponents = {
+    'dashboard-classroom': {
+        component: () => import('@/components/partials/header/extras/FilterTabsClassroom.vue'),
+    },
+    'dashboard-classroom-slug': {
+        component: () => import('@/components/partials/header/extras/MenuTabsClassroom.vue')
+    },
+}
+
+export const actionHeaderComponents = {
+    'dashboard-classroom': {
+      component: () => import('@/components/partials/header/actions/HeaderActionButton.vue'),
+      props: {
+        label: 'Kelas',
+        to: '/dashboard/classroom/create',
+        icon: 'ri-add-fill',
+        class: 'd-md-none d-block',
+      }
+    },
+    'dashboard-studio': {
+      component: () => import('@/components/partials/header/actions/HeaderActionButton.vue'),
+      props: {
+        label: 'Studio',
+        to: '/dashboard/studio/create',
+        icon: 'ri-add-fill',
+      }
+    },
+    'dashboard-classroom-slug': {
+        component: () => import('@/components/partials/header/actions/BadgeStatusRegistration.vue')
+    }
+  }
+  
