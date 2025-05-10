@@ -5,18 +5,31 @@
       :items="items"
       :fields="fields"
       @edit="handleEdit"
-      @delete="handleDelete"
+      @delete="promptDelete"
     >
       <template #cell(actions)="data">
         <button class="btn btn-sm btn-primary me-1" @click="data.emit('edit', data.item)">Edit</button>
         <button class="btn btn-sm btn-danger" @click="data.emit('delete', data.item)">Delete</button>
       </template>
     </Table>
+
+    <!-- Modal Konfirmasi -->
+    <ModalConfirmation
+      v-model:show="showDeleteModal"
+      title="Konfirmasi Hapus"
+      :itemName="itemName"
+      @ok="confirmDelete"
+      @cancel="handleCancel"
+      ok-title="Iya"
+      cancel-title="Tidak"
+      ok-variant="danger"
+    />
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Table from '@/components/ui/Table.vue'
+import ModalConfirmation from '@/components/ui/modals/ModalConfirmation.vue'
 
 const items = ref([
   { id: 1, first_name: 'Fred', last_name: 'Flintstone' },
@@ -37,11 +50,33 @@ const fields = [
   { key: 'actions', label: 'Aksi' }
 ]
 
-function handleEdit(item: any) {
+const showDeleteModal = ref(false)
+const selectedItem = ref(null)
+
+const itemName = computed(() => {
+  if (selectedItem.value) {
+    return `${selectedItem.value.first_name} ${selectedItem.value.last_name}`
+  }
+  return ''
+})
+
+function handleEdit(item) {
   console.log('Edit:', item)
 }
 
-function handleDelete(item: any) {
-  console.log('Delete:', item)
+function handleCancel() {
+  showDeleteModal.value = false
+  selectedItem.value = null
+}
+
+function promptDelete(item) {
+  selectedItem.value = item
+  showDeleteModal.value = true
+}
+
+function confirmDelete() {
+  items.value = items.value.filter(i => i.id !== selectedItem.value.id)
+  showDeleteModal.value = false
+  selectedItem.value = null
 }
 </script>

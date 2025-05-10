@@ -122,3 +122,12 @@ button {
 /**
 ** =========== Buttons ==============
 */
+
+.btn {
+  color: $white;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: rgba($white, 0.8);
+  }
+}
