@@ -10,7 +10,7 @@
         </aside>
       </transition>
   
-      <div
+      <main
         class="flex-grow-1 min-vh-100 bg-light"
         :style="!isMobile && isSidebarVisible ? 'padding-left: 250px;' : ''"
       >
@@ -21,7 +21,7 @@
         <div class="container px-3 pt-4 pb-8">
           <slot></slot>
         </div>
-      </div>
+      </main>
     </div>
 </template>
 
@@ -29,7 +29,6 @@
 // import styles from "@/assets/css/modules/layouts/default.module.scss"
 import Sidebar from "@/components/partials/Sidebar.vue"
 import Header from "@/components/partials/Header.vue"
-import Breadcrumb from "@/components/partials/Breadcrumb.vue"
 import { useStore } from 'vuex'
 import { useSeo } from '~/composables/useSeo'
 

@@ -13,6 +13,7 @@
     "bootstrap": "5.3.5",
     "bootstrap-vue-next": "^0.29.2",
     "nuxt": "^3.17.1",
+    "radix-vue": "^1.9.17",
     "remixicon": "^4.6.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"

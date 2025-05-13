@@ -57,13 +57,13 @@ export default {
                 "description": "Empower your digital career with our bootcamp, where AI-driven strategies and expert mentorship deliver global work opportunities.",
                 "image": "https://drive.alkademi.id/v1/upload/settings/alkademi/1740982343140.png",
                 "keywords": "Expert Bootcamp, AI-Powered Bootcamp, Software Engineering Bootcamp, AI Training for Software Engineers, Digital Talent Upskilling, ASEAN's Talent, ASIA's Talent, Global Talent, Indonesia's Talents, Job Placement, Talent Mathing",
-                "name": "Alkademi - Accelerate Your Global Digital Career with Artificial Intelligence",
-                "site_name": "Alkademi - Accelerate Your Global Digital Career with Artificial Intelligence",
+                "name": "Alkademi",
+                "site_name": "Alkademi",
                 "twitter_site": "https://alkademi.id/",
                 "type": "website",
                 "url": "https://alkademi.id/"
             },
-            "title": "Alkademi - Accelerate Your Global Digital Career with Artificial Intelligence"
+            "title": "Alkademi"
         },
         appVersion: null,
         isTokenValid: false,

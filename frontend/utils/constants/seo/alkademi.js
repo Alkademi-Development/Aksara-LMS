@@ -270,6 +270,92 @@ const ALKADEMI = {
         }
       }
     },
+    "dashboard-studio": {
+      title: {
+        isDynamic: false,
+        static: "Studio",
+        withSitename: true,
+      },
+      og: {
+        title: {
+          isDynamic: false,
+          static: "Studio",
+          withSitename: true,
+        },
+        image: {
+          isDynamic: true,
+          storePath: "setting.meta.image",
+          isAddOrigin: true,
+        },
+      },
+      twitter: {
+        title: {
+          isDynamic: false,
+          static: "Studio",
+          withSitename: true,
+        },
+        image: {
+          isDynamic: true,
+          storePath: "setting.meta.image",
+          isAddOrigin: true,
+        },
+      },
+      itemprop: {
+        name: {
+          isDynamic: false,
+          static: "Studio",
+          withSitename: true,
+        },
+        image: {
+          isDynamic: true,
+          storePath: "setting.meta.image",
+          isAddOrigin: true,
+        },
+      }
+    },
+    "dashboard-studio-compiler": {
+      title: {
+        isDynamic: false,
+        static: "Studio",
+        withSitename: true,
+      },
+      og: {
+        title: {
+          isDynamic: false,
+          static: "Studio",
+          withSitename: true,
+        },
+        image: {
+          isDynamic: true,
+          storePath: "setting.meta.image",
+          isAddOrigin: true,
+        },
+      },
+      twitter: {
+        title: {
+          isDynamic: false,
+          static: "Studio",
+          withSitename: true,
+        },
+        image: {
+          isDynamic: true,
+          storePath: "setting.meta.image",
+          isAddOrigin: true,
+        },
+      },
+      itemprop: {
+        name: {
+          isDynamic: false,
+          static: "Studio",
+          withSitename: true,
+        },
+        image: {
+          isDynamic: true,
+          storePath: "setting.meta.image",
+          isAddOrigin: true,
+        },
+      }
+    },
 }
   
 export default ALKADEMI

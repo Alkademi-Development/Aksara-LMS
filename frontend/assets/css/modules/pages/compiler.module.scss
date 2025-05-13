@@ -1,0 +1,116 @@
+@use '@/assets/css/utilities/_colors' as *;
+
+aside nav {
+    border-right: 1px solid $grey;
+}
+
+header {
+    border-bottom: 1px solid $grey;
+}
+
+:global(.resize-icon) {
+  background-color: $white;
+  color: $pureBlack;
+}
+
+:global(.dark .resize-icon) {
+  background-color: $pureBlack;
+  color: $white;
+}
+
+:global(main .editor-area #top-bar-editor) {
+    border-bottom: 1px solid $grey;
+}
+
+:global(main .editor-area .panel) {
+    border-top: 1px solid $grey;
+}
+
+:global(.dark .editor-area #top-bar-editor) {
+    border-bottom: 1px solid $black3;
+}
+
+:global(.dark .editor-area .panel) {
+    border-block: 1px solid $black3;
+}
+
+:global(.dark) {
+
+    aside nav {
+        background-color: $pureBlack;
+        border: 1px solid $black3;
+        
+        button {
+            color: $white;
+        }
+    }
+
+    header {
+        background-color: $pureBlack;
+        border-bottom: 1px solid $black3;
+
+        h3 {
+            color: $white;
+        }
+
+        // button:first-child {
+        //     background-color: $white;
+        //     transition: 0.2s ease-in-out;
+    
+        //     &:hover {
+        //         background-color: var(--secondary);
+        //     }
+        // }
+    }
+
+    main section {
+        background-color: $pureBlack;
+        
+        * {
+            color: $white;
+        }
+
+        button {
+            background-color: $black3;
+        }
+
+        li > button {
+            background-color: transparent;
+        }
+        
+        input {
+            background-color: $pureBlack;
+            color: $white;
+            border: 1px solid $grey;
+            transition: background-color 0.2s;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &:focus-visible,
+            &:focus-within {
+            background-color: $pureBlack;
+            color: $white;
+            outline: none;
+            border-color: $grey;
+            }
+
+            &::placeholder {
+                color: lighten($white, 30%);
+                opacity: 0.8;
+            }
+
+            &:disabled {
+                background-color: darken($black, 5%);
+                color: lighten($white, 30%);
+                cursor: not-allowed;
+            }
+        }
+
+        table * {
+            background-color: $pureBlack;
+            color: $white;
+        }
+    }
+    
+}
