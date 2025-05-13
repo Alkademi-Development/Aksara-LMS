@@ -18,7 +18,7 @@ header {
   color: $white;
 }
 
-:global(main .editor-area #top-bar-editor) {
+:global(main .editor-area .top-bar-editor) {
     border-bottom: 1px solid $grey;
 }
 
@@ -26,11 +26,27 @@ header {
     border-top: 1px solid $grey;
 }
 
-:global(.dark .editor-area #top-bar-editor) {
+:global(.dark .editor-area .top-bar-editor) {
     border-bottom: 1px solid $black3;
 }
 
 :global(.dark .editor-area .panel) {
+    border-block: 1px solid $black3;
+}
+
+:global(.resize-handle-horizontal) {
+    border-inline: 1px solid $grey;
+}
+
+:global(.dark .resize-handle-horizontal) {
+    border-inline: 1px solid $black3;
+}
+
+:global(.resize-handle-vertical) {
+    border-block: 1px solid $grey;
+}
+
+:global(.dark .resize-handle-vertical) {
     border-block: 1px solid $black3;
 }
 
@@ -52,21 +68,12 @@ header {
         h3 {
             color: $white;
         }
-
-        // button:first-child {
-        //     background-color: $white;
-        //     transition: 0.2s ease-in-out;
-    
-        //     &:hover {
-        //         background-color: var(--secondary);
-        //     }
-        // }
     }
 
     main section {
         background-color: $pureBlack;
         
-        * {
+        h1,h2,h3,h4,h5,h6,i,label,button {
             color: $white;
         }
 

@@ -32,10 +32,10 @@
 
 <script setup>
 import "@/assets/css/modules/pages/compiler.module.scss";
-import Sidebar from "@/components/editor/monaco/Sidebar.vue";
-import TopHeader from "@/components/editor/monaco/TopHeader.vue";
-import Viewer from "@/components/editor/monaco/Viewer.vue";
-import EditorArea from "@/components/editor/monaco/EditorArea.vue";
+import Sidebar from "@/components/pages/compiler/Sidebar.vue";
+import TopHeader from "@/components/pages/compiler/TopHeader.vue";
+import Viewer from "@/components/pages/compiler/Viewer.vue";
+import EditorArea from "@/components/pages/compiler/EditorArea.vue";
 import ModalLoading from "@/components/ui/modals/ModalLoading.vue";
 import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'radix-vue';
 
@@ -50,6 +50,7 @@ useHead({
   }
 })
 
+const compilerType = ref('web');
 const isDark = ref(false)
 const isLoading = ref(true);
 
@@ -75,6 +76,7 @@ const toggleDark = () => {
 }
 
 provide('isDark', isDark)
+provide('compilerType', compilerType)
 provide('toggleDark', toggleDark)
 
 </script>
