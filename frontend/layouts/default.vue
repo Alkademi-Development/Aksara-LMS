@@ -11,7 +11,7 @@
       </transition>
   
       <div
-        class="flex-grow-1 min-vh-100 bg-light"
+        class="flex-grow-1 min-vh-100"
         :style="!isMobile && isSidebarVisible ? 'padding-left: 250px;' : ''"
       >
         <Header

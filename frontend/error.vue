@@ -3,7 +3,7 @@
       <img v-if="error?.statusCode == 404" src="@/assets/icons/404.svg" width="300" alt="404 Not Found" class="mb-4">
       <h1 v-else class="text-primary" style="font-size: 8rem;">{{ error?.statusCode }}</h1>
       <h3>{{ titleErrorMessage }}</h3>
-      <NuxtLink href="/dashboard/classroom" class="fw-bolder mt-3">Kembali ke halaman utama</NuxtLink>
+      <NuxtLink @click.prevent="handleRedirect" href="#" class="fw-bolder mt-3">Kembali ke halaman utama</NuxtLink>
   </div>
 </template>
 
@@ -32,6 +32,13 @@ useHead({
   title: `${props?.error?.statusCode} - ${titleErrorMessage.value}`,
 })
 
-const handleError = () => clearError({ redirect: "/" })
+const router = useRouter()
+
+const handleRedirect = () => {
+  clearError()
+  setTimeout(() => {
+    router.push('/dashboard/classroom')
+  }, 50)
+}
 
 </script>

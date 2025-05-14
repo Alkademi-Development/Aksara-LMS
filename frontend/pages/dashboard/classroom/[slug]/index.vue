@@ -13,9 +13,9 @@
 <script setup>
 import { useStore } from 'vuex'
 
-import Overview from "@/components/pages/classroom/Overview.vue";
-import Assignment from "@/components/pages/classroom/Assignment.vue";
-import Activity from "@/components/pages/classroom/Activity.vue";
+import Overview from "@/components/pages/dashboard/classroom/Overview.vue";
+import Assignment from "@/components/pages/dashboard/classroom/Assignment.vue";
+import Activity from "@/components/pages/dashboard/classroom/Activity.vue";
 
 const store = useStore()
 

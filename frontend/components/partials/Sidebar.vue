@@ -33,6 +33,10 @@
                 <i :class="`${route.path.includes('/dashboard/schedules') ? 'text-primary' : 'text-black'} ri-calendar-event-fill text-md`"></i>
                 <span :class="`${route.path.includes('/dashboard/schedules') ? 'text-black' : 'text-black'} text-sm fw-normal`">Jadwal Kegiatan</span>
             </NuxtLink>
+            <NuxtLink to="/dashboard/courses" class="py-3 px-4 d-flex align-items-center gap-3">
+                <i :class="`${route.path.includes('/dashboard/courses') ? 'text-primary' : 'text-black'} ri-book-line text-md`"></i>
+                <span :class="`${route.path.includes('/dashboard/courses') ? 'text-black' : 'text-black'} text-sm fw-normal`">Pustaka</span>
+            </NuxtLink>
             <hr>
             <NuxtLink to="/dashboard/studio" class="py-3 px-4 d-flex align-items-center gap-3">
                 <i :class="`${route.path.includes('/dashboard/studio') ? 'text-primary' : 'text-black'} ri-code-box-line text-md`"></i>

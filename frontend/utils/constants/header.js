@@ -1,9 +1,35 @@
 export const extraHeaderComponents = {
-    'dashboard-classroom': () => import('@/components/partials/header/extras/FilterTabsClassroom.vue'),
-    'dashboard-classroom-slug': () => import('@/components/partials/header/extras/MenuTabsClassroom.vue'),
+    'dashboard-classroom': {
+        component: () => import('@/components/partials/header/extras/FilterTabsClassroom.vue'),
+    },
+    'dashboard-courses': {
+        component: () => import('@/components/partials/header/extras/FilterTabsCourse.vue'),
+    },
+    'dashboard-classroom-slug': {
+        component: () => import('@/components/partials/header/extras/MenuTabsClassroom.vue')
+    },
 }
 
 export const actionHeaderComponents = {
-    'dashboard-classroom-slug': () => import('@/components/partials/header/actions/BadgeStatusRegistration.vue'),
+    'dashboard-classroom': {
+      component: () => import('@/components/partials/header/actions/HeaderActionButton.vue'),
+      props: {
+        label: 'Kelas',
+        to: '/dashboard/classroom/create',
+        icon: 'ri-add-fill',
+        class: 'd-md-none d-block',
+      }
+    },
+    'dashboard-studio': {
+      component: () => import('@/components/partials/header/actions/HeaderActionButton.vue'),
+      props: {
+        label: 'Studio',
+        to: '/dashboard/studio/create',
+        icon: 'ri-add-fill',
+      }
+    },
+    'dashboard-classroom-slug': {
+        component: () => import('@/components/partials/header/actions/BadgeStatusRegistration.vue')
+    }
   }
   

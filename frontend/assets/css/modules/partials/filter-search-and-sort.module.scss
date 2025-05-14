@@ -1,0 +1,22 @@
+@use '@/assets/css/utilities/_colors' as *;
+
+:global(.filter-bundle .btn) {
+    background-color: transparent;
+}
+
+:global(.filter-bundle) {
+    button:hover {
+        background-color: transparent;
+        color: var(--primary);
+    }
+    input, button {
+        border: none;
+        border-radius: 0;
+    }
+}
+
+:global(.filter-bundle .search-wrapper) {
+    input,i {
+        color: $grey2;
+    }
+}
