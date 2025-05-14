@@ -8,6 +8,10 @@ header {
     border-bottom: 1px solid $grey;
 }
 
+:global(main section .panel-language) {
+    background-color: $grey;
+}
+
 :global(.resize-icon) {
   background-color: $white;
   color: $pureBlack;
@@ -48,6 +52,39 @@ header {
 
 :global(.dark .resize-handle-vertical) {
     border-block: 1px solid $black3;
+}
+
+:global(.dark .delete-console) {
+    background-color: $pureBlack;
+}
+
+:global(.dark .preview-container) {
+    background-color: $black3;
+}
+
+:global(.dark .output-wrapper) {
+    color: $white;
+}
+
+:global(.dark .modal-wrapper) {
+    background-color: $black;
+
+    h1,h2,h3,h4,h5,h6,span,i,button {
+        color: $white;
+    }   
+}
+
+:global(main) {
+    // overflow: auto;
+    overflow: hidden;
+
+    // @media (min-width: 1024px) {
+    //     overflow: hidden;
+    // }
+}
+
+:global(.dark main) {
+    background-color: $pureBlack;
 }
 
 :global(.dark) {
@@ -114,7 +151,7 @@ header {
             }
         }
 
-        table * {
+        table, thead, tr, th, td, tbody {
             background-color: $pureBlack;
             color: $white;
         }

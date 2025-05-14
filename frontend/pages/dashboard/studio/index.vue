@@ -8,8 +8,13 @@
       @delete="promptDelete"
     >
       <template #cell(actions)="data">
-        <button class="btn btn-sm btn-primary me-1" @click="data.emit('edit', data.item)">Edit</button>
-        <button class="btn btn-sm btn-danger" @click="data.emit('delete', data.item)">Delete</button>
+        <div class="d-flex align-items-center gap-2">
+          <NuxtLink to="/dashboard/studio/compiler" class="btn btn-sm btn-info">
+            <i class="ri-eye-line"></i>
+          </NuxtLink>
+          <button class="btn btn-sm btn-primary" @click="data.emit('edit', data.item)">Edit</button>
+          <button class="btn btn-sm btn-danger" @click="data.emit('delete', data.item)">Delete</button>
+        </div>
       </template>
     </Table>
 

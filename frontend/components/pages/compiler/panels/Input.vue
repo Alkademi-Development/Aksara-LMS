@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-grow-1 overflow-auto px-3 pb-3">
+    <div class="panel-input flex-grow-1 overflow-auto px-3 pb-4" style="max-height: 220px;">
         <BForm @submit="() => {}" class="d-flex flex-column gap-3">
             <BFormGroup label="Masukkan suhu:" label-for="input-1">
                 <BFormInput v-model="form.suhu" id="input-1" type="number" placeholder="Masukkan Suhu..." required />

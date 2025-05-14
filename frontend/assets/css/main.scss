@@ -67,14 +67,6 @@ button {
 ** =========== Utilities ==============
 */
 
-.hover-text-primary {
-  transition: 0.2s ease-in-out;
-
-  &:hover {
-    color: var(--primary);
-  }
-}
-
 .badge {
    padding: 0.75rem 1rem;
    display: flex;
@@ -141,9 +133,12 @@ button {
   &:hover {
     color: rgba($white, 0.8);
   }
-}
+  
+  .btn-primary {
+    background-color: var(--primary);
+  }
 
-.btn-disable {
-  background-color: $grey;
-  color: $white;
+  .btn-disable {
+    background-color: $grey;
+  }
 }
