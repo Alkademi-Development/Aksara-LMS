@@ -18,14 +18,16 @@
 ** =========== Base Styling ==============
 **/
 
-// html, body {
-//     overflow-x: hidden;
-// }
+body {
+    overflow: auto;
+}
+body.no-scroll {
+  overflow: hidden;
+}
 
 h1,h2,h3,h4,h5,h6 {
     font-family: $font-heading;
     font-style: normal;
-    font-weight: 900;
     margin: 0;
     padding: 0;
     color: $black;
@@ -58,6 +60,17 @@ button {
     border: none;
     background: transparent;
     appearance: none;
+}
+
+input.form-control {
+  &:hover,
+  &:focus,
+  &:active,
+  &:focus-visible,
+  &:focus-within {
+    // border: 1px solid $grey;
+    box-shadow: none;
+  }
 }
 
 /**
@@ -124,10 +137,19 @@ button {
 */
 
 .btn {
-  color: $white;
+  overflow: hidden;
   transition: 0.3s ease-in-out;
 
   &:hover {
     color: rgba($white, 0.8);
+  }
+  
+  &.btn-primary {
+    color: $white;
+    background-color: var(--primary);
+  }
+
+  &.btn-disable {
+    background-color: $grey;
   }
 }

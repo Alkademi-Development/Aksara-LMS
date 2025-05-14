@@ -2,6 +2,9 @@ export const extraHeaderComponents = {
     'dashboard-classroom': {
         component: () => import('@/components/partials/header/extras/FilterTabsClassroom.vue'),
     },
+    'dashboard-courses': {
+        component: () => import('@/components/partials/header/extras/FilterTabsCourse.vue'),
+    },
     'dashboard-classroom-slug': {
         component: () => import('@/components/partials/header/extras/MenuTabsClassroom.vue')
     },
