@@ -20,5 +20,11 @@ export default defineNuxtConfig({
   components: [
     '~/components'
   ],
+  modules: [
+    'nuxt-monaco-editor',
+  ],
+  monacoEditor: {
+    locale: 'en'
+  },
   plugins: ['~/plugins/vuex.js', '~/plugins/bootstrapClient.js']
 })

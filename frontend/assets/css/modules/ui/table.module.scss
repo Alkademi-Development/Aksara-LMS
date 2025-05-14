@@ -1,0 +1,37 @@
+@use '@/assets/css/utilities/_colors' as *;
+
+.tableWrapper {
+    table {
+        overflow: auto;
+
+        thead th {
+            font-weight: 500;
+            padding: 8px 16px;
+            background-color: $grey4;
+        }
+
+        tbody td {
+            padding: 8px 16px;
+        }
+    }
+  
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: end !important;
+        gap: 10px;
+        padding-inline: 10px;
+        padding-bottom: 15px;
+
+        li button, span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50% !important;
+            font-weight: 500;
+        }
+    }
+  }
+  

@@ -6,13 +6,13 @@
       <i :class="icon"></i>
       {{ label }}
     </NuxtLink>
-  </template>
+</template>
   
-  <script setup>
-  defineProps({
+<script setup>
+defineProps({
     label: { type: String, required: true },
     icon: { type: String, default: 'ri-add-fill' },
     to: { type: String, required: true },
     classes: { type: String },
-  })
-  </script>
+})
+</script>

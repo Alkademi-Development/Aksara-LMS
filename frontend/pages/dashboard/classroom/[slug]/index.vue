@@ -19,6 +19,14 @@ import Activity from "@/components/pages/dashboard/classroom/Activity.vue";
 
 const store = useStore()
 
+const status = computed(() => store.state.class.status)
+const message = computed(() => store.state.class.message)
+const data = computed(() => store.state.class.data)
+
+onMounted(async () => {
+  await store.dispatch('class/overview', { slug: 'fundamental-c---programming' })
+})
+
 onMounted(() => {
   store.dispatch('tabsClassroom/resetTab')
 })

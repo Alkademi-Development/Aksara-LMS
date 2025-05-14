@@ -81,36 +81,35 @@ const isMobile = ref(false)
 const updateIsMobile = () => isMobile.value = window.innerWidth < 576;
 
 onMounted(() => {
-updateIsMobile()
-window.addEventListener('resize', updateIsMobile)
+  updateIsMobile()
+  window.addEventListener('resize', updateIsMobile)
 })
 
 onBeforeUnmount(() => {
-window.removeEventListener('resize', updateIsMobile)
+  window.removeEventListener('resize', updateIsMobile)
 })
-
 
 const segments = computed(() => route.path.split('/').filter(Boolean))
 
 const breadcrumbs = computed(() => {
-const crumbs = []
-let pathAcc = ''
+  const crumbs = []
+  let pathAcc = ''
 
-for (const segment of segments.value) {
-  // Skip numeric segments
-  if (!isNaN(Number(segment))) continue
+  for (const segment of segments.value) {
+    // Skip numeric segments
+    if (!isNaN(Number(segment))) continue
 
-  pathAcc += `/${segment}`
+    pathAcc += `/${segment}`
 
-  const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
-  crumbs.push({
-    to: pathAcc,
-    truncateTitle: String(truncateWords(translated))?.toUpperCase(),
-    title: translated
-  })
-}
+    const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
+    crumbs.push({
+      to: pathAcc,
+      truncateTitle: String(truncateWords(translated))?.toUpperCase(),
+      title: translated
+    })
+  }
 
-return crumbs
+  return crumbs
 })
 
 </script>
