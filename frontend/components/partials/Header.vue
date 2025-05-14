@@ -61,7 +61,7 @@ const extraContentHeader = computed(() => {
   if (!config) return null
 
   return {
-    component: defineAsyncComponent(config.component),
+    component: config.component,
     props: config.props || {}
   }
 })
@@ -71,7 +71,7 @@ const actionHeader = computed(() => {
   if (!config) return null
 
   return {
-    component: defineAsyncComponent(config.component),
+    component: config.component,
     props: config.props || {}
   }
 })

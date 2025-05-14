@@ -1,18 +1,18 @@
 export const extraHeaderComponents = {
     'dashboard-classroom': {
-        component: () => import('@/components/partials/header/extras/FilterTabsClassroom.vue'),
+        component: defineAsyncComponent(() => import('@/components/partials/header/extras/FilterTabsClassroom.vue')),
     },
     'dashboard-courses': {
-        component: () => import('@/components/partials/header/extras/FilterTabsCourse.vue'),
+        component: defineAsyncComponent(() => import('@/components/partials/header/extras/FilterTabsCourse.vue')),
     },
     'dashboard-classroom-slug': {
-        component: () => import('@/components/partials/header/extras/MenuTabsClassroom.vue')
+        component: defineAsyncComponent(() => import('@/components/partials/header/extras/MenuTabsClassroom.vue'))
     },
 }
 
 export const actionHeaderComponents = {
     'dashboard-classroom': {
-      component: () => import('@/components/partials/header/actions/HeaderActionButton.vue'),
+      component: defineAsyncComponent(() => import('@/components/partials/header/actions/HeaderActionButton.vue')),
       props: {
         label: 'Kelas',
         to: '/dashboard/classroom/create',
@@ -21,7 +21,7 @@ export const actionHeaderComponents = {
       }
     },
     'dashboard-studio': {
-      component: () => import('@/components/partials/header/actions/HeaderActionButton.vue'),
+      component: defineAsyncComponent(() => import('@/components/partials/header/actions/HeaderActionButton.vue')),
       props: {
         label: 'Studio',
         to: '/dashboard/studio/create',
@@ -29,7 +29,7 @@ export const actionHeaderComponents = {
       }
     },
     'dashboard-classroom-slug': {
-        component: () => import('@/components/partials/header/actions/BadgeStatusRegistration.vue')
+        component: defineAsyncComponent(() => import('@/components/partials/header/actions/BadgeStatusRegistration.vue'))
     }
   }
   

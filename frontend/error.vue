@@ -2,7 +2,7 @@
   <div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
       <img v-if="error?.statusCode == 404" src="@/assets/icons/404.svg" width="300" alt="404 Not Found" class="mb-4">
       <h1 v-else class="text-primary" style="font-size: 8rem;">{{ error?.statusCode }}</h1>
-      <h3>{{ titleErrorMessage }}</h3>
+      <h4>{{ titleErrorMessage }}</h4>
       <NuxtLink @click.prevent="handleRedirect" href="#" class="fw-bolder mt-3">Kembali ke halaman utama</NuxtLink>
   </div>
 </template>
