@@ -19,8 +19,6 @@ function resolveValue(entry, config) {
         return get(store, path.join('.')) || ''
       }
     }
-
-    console.log(entry)
   
     return entry?.static || ''
 }
@@ -38,8 +36,6 @@ export function useSeo(config = {}) {
     const replaced = flatSegments.map(s => s.startsWith(':') ? 'slug' : s)
     return replaced.join('-') || 'index'
   })
-
-  console.log(pageKey)
 
   const seoData = computed(() => {
     return seoSource[pageKey.value] || seoSource['index']

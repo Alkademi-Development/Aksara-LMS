@@ -3,13 +3,13 @@
 
         <div class="row row-gap-3">
             <div class="col-12 col-md-6">
-                <ClassCard />
+                <CardClass />
             </div>
             <div class="col-12 col-md-6">
-                <ClassCard />
+                <CardClass />
             </div>
             <div class="col-12 col-md-6">
-                <ClassCard />
+                <CardClass />
             </div>
         </div>
 
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import ClassCard from "@/components/cards/ClassCard.vue";
+import CardClass from "@/components/cards/CardClass.vue";
 
 </script>
 

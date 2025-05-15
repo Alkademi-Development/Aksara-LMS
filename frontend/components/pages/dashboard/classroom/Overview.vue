@@ -8,10 +8,10 @@
                 <h5 class="my-4 fw-medium">Tentang</h5>
                 <div class="row row-gap-3">
                     <div class="col-12 col-md-6">
-                        <BoardInformationCard title="Pendaftaran" content="07 May 09:30 PM - 15 May 2025 12:10 PM" boardType="border-success" />
+                        <CardBoardInformation title="Pendaftaran" content="07 May 09:30 PM - 15 May 2025 12:10 PM" boardType="border-success" />
                     </div>
                     <div class="col-12 col-md-6">
-                        <BoardInformationCard title="Pelaksanaan" content="15 May 12:00 PM - 15 May 2025 02:00 PM" boardType="border-info" />
+                        <CardBoardInformation title="Pelaksanaan" content="15 May 12:00 PM - 15 May 2025 02:00 PM" boardType="border-info" />
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between flex-wrap flex-lg-nowrap gap-3 mt-4">
@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import BoardInformationCard from "@/components/cards/BoardInformationCard.vue";
+import CardBoardInformation from "@/components/cards/CardBoardInformation.vue";
 
 </script>
 
