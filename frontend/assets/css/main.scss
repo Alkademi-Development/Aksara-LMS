@@ -10,6 +10,7 @@
 @import 'utilities/min-heights';
 @import 'utilities/dimensions';
 @import 'utilities/scrollbars';
+@import 'utilities/backgrounds';
 @import 'utilities/colors';
 @import 'utilities/containers';
 @import "bootstrap/scss/bootstrap";
@@ -17,6 +18,12 @@
 /**
 ** =========== Base Styling ==============
 **/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
     overflow: auto;
@@ -76,6 +83,10 @@ input.form-control {
 /**
 ** =========== Utilities ==============
 */
+
+.container-fluid {
+  padding: 1rem 0.8rem;
+}
 
 .badge {
    padding: 0.75rem 1rem;

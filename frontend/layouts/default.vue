@@ -11,14 +11,14 @@
       </transition>
   
       <div
-        class="flex-grow-1 min-vh-100"
-        :style="!isMobile && isSidebarVisible ? 'padding-left: 250px;' : ''"
+        class="container min-vh-100"
+        :style="!isMobile && isSidebarVisible ? 'padding-left: 250px; padding-right: 0;' : 'padding-inline: 0;'"
       >
         <Header
           :isSidebarVisible="isSidebarVisible"
           @toggle-sidebar="isSidebarVisible = !isSidebarVisible"
         />
-        <div class="container px-3 pt-4 pb-8">
+        <div class="position-relative">
           <slot></slot>
         </div>
       </div>

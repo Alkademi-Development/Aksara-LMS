@@ -20,9 +20,7 @@ export default defineNuxtConfig({
   components: [
     '~/components'
   ],
-  modules: [
-    'nuxt-monaco-editor',
-  ],
+  modules: ['nuxt-monaco-editor'],
   monacoEditor: {
     locale: 'en'
   },

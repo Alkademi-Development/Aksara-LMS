@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <Table
       :per-page="3"
       :items="items"
