@@ -1,82 +1,190 @@
 <template>
-    <div class="card-custom border rounded p-3 d-flex align-items-start gap-4 w-100 h-100">
-        <div class="card-header position-relative rounded overflow-hidden">
-            <img
-                src="https://drive.alkademi.id/v1/upload/announcement/1747276395412.png"
-                alt="Thumbnail"
-                class="w-100 h-100 object-fit-cover"
-            />
-            <span
-                class="position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center"
-            >
-                <i
-                class="ri-check-line bg-dark text-white rounded-pill d-flex align-items-center justify-content-center"
-                ></i>
-            </span>
+    <div class="card">
+      <div class="wrapper-content">
+        <div class="wrapper-header" >
+          <img
+              src="https://drive.alkademi.id/v1/upload/announcement/1747276395412.png"
+              alt="Thumbnail"
+              class="w-100 h-100 object-fit-cover"
+          />
+          <span
+              class="position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center"
+          >
+              <i
+              class="ri-check-line bg-dark text-white rounded-pill d-flex align-items-center justify-content-center"
+              ></i>
+          </span>
         </div>
-        <div class="card-body flex-grow-1">
-            <div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="mb-1 fw-bold">Fullstack Developer</h5>
-                    <button class="btn btn-sm py-1 px-2 border rounded text-muted"><i class="ri-more-fill"></i></button>
-                </div>
-                <p class="mt-2 text-limit limit-5">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                </p>
+        <div class="wrapper-body">
+          <div :class="`d-flex flex-column gap-3 pt-2`">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="category-bundle">Test</div>
             </div>
-            <div class="d-flex justify-content-between text-sm">
-                <span>
-                    <i class="ri-book-2-line me-1"></i>
-                    <b>2 Materi</b>
-                </span>
-                <span class="fw-bold text-md">Free</span>
+            <h5 class="title-bundle cursor-pointer text-limit limit-1">Fullstack Developer</h5>
+            <p class="text-limit limit-4 description-bundle overflow-hidden">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat modi fugit exercitationem? Numquam officia sit eum praesentium veniam quos est distinctio alias excepturi ipsa, fugiat reiciendis tempora? Ut ex consectetur quae vel numquam inventore sapiente quasi alias? Provident nostrum, id dolore porro accusamus temporibus eveniet explicabo distinctio dignissimos praesentium harum.
+            </p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pb-1">
+            <div class="d-flex align-items-center materi-bundle">
+              <i class="ri-book-open-line"></i>
+              <p class="mb-0">2 Materi</p>
             </div>
+            <div class="price">
+              <p class="mb-0">Free</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</template>
+  </template>
 
 <script setup>
 
 </script>
 
 <style lang="scss" scoped>
+.card{
+  border-radius: 6px;
+  height: 250px;
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
 
-.card-header {
-    aspect-ratio: 9/16;
-    width: 30%;
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
+  &:active{
+    cursor: grabbing;
+  }
 
-    @media (max-width: 992px) {
-        width: calc(15% - 5px);
+  .wrapper-content{
+    display: flex;
+    height: 100%;
+    gap: 24px;
+
+    .wrapper-header{
+      aspect-ratio: 9 / 16;
+      width: calc(30% - 12px);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+
+      @media (max-width: 992px) {
+        width: auto;
+      }
     }
-    
-    @media (max-width: 768px) {
-        width: 30%;
-    }
 
-    span {
-        width: 30px; 
-        height: 30px; 
-        top: 8px; 
-        right: 8px;
-
-        i {
-            width: 20px; 
-            height: 20px;
-        }
+    .wrapper-body{
+      gap: 15px;
+      width: calc(70% + 12px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
     }
+  }
 }
 
-.card-body {
-    gap: 15px;
-    width: 50px;
-    height: 100%;
+.description-bundle ::v-deep{
+  font-family: var(--bs-font-paragraph);
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 14px;
+  line-height: 150% !important;
+  color: rgba(0,0,0,.6) !important;
+
+  span, p{
+    font-weight: 400 !important;
+    line-height: 150% !important;
+    color: rgba(0,0,0,.6) !important;
+  }
+}
+
+.price-content{
+  display: flex;
+  margin-bottom: 10px;
+
+  p{
+    font-size: 14px;
+  }
+  
+  i{
+    font-size: 25px;
+  }
+}
+
+.category-bundle{
+  background-color: rgb(236, 236, 236);
+  width: max-content;
+  color: rgb(93, 93, 93);
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.title-bundle{
+  font-family: var(--bs-font-heading);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000;
+  width: 85%;
+}
+
+.materi-bundle{
+  gap: 5px;
+
+  i, p{
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.more-options{
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgb(157, 157, 157);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+
+  i{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(157, 157, 157);
+  }
+}
+
+.more-menu ::v-deep{
+  width: 27px;
+  height: 27px;
+  top: 13px;
+  right: 10px;
+
+  i{
+    font-size: 20px;
+  }
+
+  button{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.price{
+  p{
+    font-family: var(--bs-font-paragraph);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+  }
 }
 
 </style>

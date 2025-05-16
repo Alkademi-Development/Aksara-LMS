@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="container-fluid">
 
         <div class="row row-gap-3">
             <div class="col-12 col-md-6">

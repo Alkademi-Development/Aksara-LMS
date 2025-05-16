@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-end justify-content-sm-between flex-wrap gap-2">
             <FilterSearchAndSort />
         </div>

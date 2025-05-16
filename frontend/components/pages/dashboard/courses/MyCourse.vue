@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-between">
             <h3>Materi Saya</h3>
             <NuxtLink to="/dashboard/courses/my-course" class="fw-medium text-lg">Lihat Semua</NuxtLink>

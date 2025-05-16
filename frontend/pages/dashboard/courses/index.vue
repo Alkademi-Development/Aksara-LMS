@@ -1,5 +1,5 @@
 <template>
-    <section class="px-1">
+    <section class="container-fluid">
         <component
         :is="{
             draft: Draft,

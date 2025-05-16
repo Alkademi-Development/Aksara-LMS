@@ -1,7 +1,7 @@
 <template>
   <header class="position-sticky top-0" style="z-index: 99;">
       <div
-          class="bg-white border-bottom container px-4 pt-5"
+          class="bg-white border-bottom px-4 pt-5"
       >
         <div class="d-grid align-items-start justify-content-between" style="grid-template-columns: 1fr auto; align-items: start; gap: 1rem; min-width: 0;">
           <div class="overflow-hidden">
