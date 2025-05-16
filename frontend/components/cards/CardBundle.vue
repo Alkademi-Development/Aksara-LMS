@@ -9,9 +9,11 @@
           />
           <span
               class="position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center"
+              style="width: 30px; height: 30px; top: 5px; right: 5px;"
           >
               <i
               class="ri-check-line bg-dark text-white rounded-pill d-flex align-items-center justify-content-center"
+              style="width: 20px; height: 20px;"
               ></i>
           </span>
         </div>

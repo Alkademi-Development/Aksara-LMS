@@ -38,3 +38,25 @@ $grey3: #495057 !default;
 $grey4: #f9f9f9 !default;
 $light: #f7fafc !default;
 $green: #2dce89 !default;
+
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "yellow": $yellow,
+  "navy": $navy,
+  "mint": $mint,
+  "peach": $peach,
+  "orange": $orange,
+  "orange2": $orange2,
+  "blue": $blue,
+  "white": $white,
+  "black": $black,
+  "black2": $black2,
+  "black3": $black3,
+  "grey": $grey,
+  "grey2": $grey2,
+  "grey3": $grey3,
+  "grey4": $grey4,
+  "light": $light,
+  "green": $green
+) !default;
