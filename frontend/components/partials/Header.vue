@@ -101,6 +101,7 @@ const segments = computed(() => route.path.split('/').filter(Boolean))
 
 const breadcrumbs = computed(() => {
   const crumbs = []
+  const routeName = route.name;
   let pathAcc = ''
 
   for (const segment of segments.value) {
@@ -109,7 +110,7 @@ const breadcrumbs = computed(() => {
 
     pathAcc += `/${segment}`
 
-    const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
+    const translated = breadcrumbTitleMap[pathAcc] || breadcrumbTitleMap[routeName] || formatBreadcrumbSegment(segment)
     crumbs.push({
       to: pathAcc,
       truncateTitle: String(truncateWords(translated))?.toUpperCase(),
