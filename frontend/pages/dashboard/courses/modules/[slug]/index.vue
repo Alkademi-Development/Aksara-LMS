@@ -48,6 +48,7 @@
         <main class="module-main-content flex-grow-1 ps-4 pe-3 py-5">
             <CardOverviewCourse v-if="activeModule === 'overview'" />
             <CardModule v-else />
+            <NavigationModule class="mt-4" />
         </main>
     </div>
 </template>
@@ -55,6 +56,7 @@
 <script setup>
 import CardOverviewCourse from '~/components/cards/CardOverviewCourse.vue';
 import CardModule from '~/components/cards/CardModule.vue';
+import NavigationModule from '~/components/pages/dashboard/courses/modules/NavigationModule.vue';
 
 const activeModule = 'overview';
 
@@ -89,7 +91,7 @@ onUnmounted(() => {
   border-radius: 0 15px 15px 0;
   color: white;
   width: 25px;
-  height: 80px;
+  height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   position: absolute;

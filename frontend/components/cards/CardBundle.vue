@@ -88,21 +88,6 @@
   }
 }
 
-.description-bundle ::v-deep{
-  font-family: var(--bs-font-paragraph);
-  font-style: normal;
-  font-weight: 400 !important;
-  font-size: 14px;
-  line-height: 150% !important;
-  color: rgba(0,0,0,.6) !important;
-
-  span, p{
-    font-weight: 400 !important;
-    line-height: 150% !important;
-    color: rgba(0,0,0,.6) !important;
-  }
-}
-
 .price-content{
   display: flex;
   margin-bottom: 10px;
@@ -158,23 +143,6 @@
     font-size: 18px;
     font-weight: 600;
     color: rgb(157, 157, 157);
-  }
-}
-
-.more-menu ::v-deep{
-  width: 27px;
-  height: 27px;
-  top: 13px;
-  right: 10px;
-
-  i{
-    font-size: 20px;
-  }
-
-  button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
