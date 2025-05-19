@@ -11,6 +11,7 @@
 @import 'utilities/dimensions';
 @import 'utilities/scrollbars';
 @import 'utilities/backgrounds';
+@import 'utilities/text-colors';
 @import 'utilities/colors';
 @import 'utilities/containers';
 @import "bootstrap/scss/bootstrap";
@@ -47,7 +48,7 @@ h4 { font-size: 20px; }
 h5 { font-size: 18px; }
 h6 { font-size: 12px; }
 
-small, span, p, a, button, ul, li {
+small, figure, span, p, a, button, ul, li {
     font-family: $font-body;
     margin: 0;
     padding: 0;
@@ -85,7 +86,7 @@ input.form-control {
 */
 
 .container-fluid {
-  padding: 1rem 0.8rem;
+  padding: 1rem;
 }
 
 .badge {

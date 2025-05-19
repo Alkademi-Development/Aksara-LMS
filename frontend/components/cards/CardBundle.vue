@@ -22,7 +22,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="category-bundle">Test</div>
             </div>
-            <h5 class="title-bundle cursor-pointer text-limit limit-1">Fullstack Developer</h5>
+            <NuxtLink to="/dashboard/courses/bundle/bundle-test"><h5 class="title-bundle cursor-pointer text-limit limit-1">Fullstack Developer</h5></NuxtLink>
             <p class="text-limit limit-4 description-bundle overflow-hidden">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat modi fugit exercitationem? Numquam officia sit eum praesentium veniam quos est distinctio alias excepturi ipsa, fugiat reiciendis tempora? Ut ex consectetur quae vel numquam inventore sapiente quasi alias? Provident nostrum, id dolore porro accusamus temporibus eveniet explicabo distinctio dignissimos praesentium harum.
             </p>

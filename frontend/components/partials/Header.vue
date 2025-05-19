@@ -70,9 +70,17 @@ const actionHeader = computed(() => {
   const config = actionHeaderComponents[currentRouteName.value]
   if (!config) return null
 
+  const props = {
+    ...config.props,
+  }
+
+  if (typeof props.to === 'function') {
+    props.to = props.to(route)
+  }
+
   return {
     component: config.component,
-    props: config.props || {}
+    props,
   }
 })
 

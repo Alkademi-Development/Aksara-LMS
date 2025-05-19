@@ -28,7 +28,7 @@
                 <li 
                     v-for="(item, index) in displayedItems"
                     :key="index"
-                    class="accordion border-bottom pb-2"
+                    :class="['accordion pb-2', { 'border-bottom': index != displayedItems?.length - 1 }]"
                 >
                    <div 
                         class="accordion-toggle d-flex align-items-start justify-content-between"
@@ -56,10 +56,11 @@
             <div class="text-center d-flex align-items-center justify-content-center mt-4">
                 <button
                 v-if="accordionItems.length > maxItems"
-                class="text-primary"
+                class="text-primary d-flex align-items-center gap-2"
                 @click="toggleViewAll"
                 >
-                {{ isViewAll ? 'Lihat Sedikit Modul' : 'Lihat Semua Modul' }}
+                    <i :class="['text-lg', isViewAll ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line']"></i>
+                    {{ isViewAll ? 'Lihat Sedikit Modul' : 'Lihat Semua Modul' }}
                 </button>
             </div>
         </div>
