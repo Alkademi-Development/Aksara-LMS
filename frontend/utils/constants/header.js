@@ -30,6 +30,9 @@ export const actionHeaderComponents = {
     },
     'dashboard-classroom-slug': {
         component: defineAsyncComponent(() => import('@/components/partials/header/actions/BadgeStatusRegistration.vue'))
-    }
+    },
+    'dashboard-courses-modules-slug': {
+        component: defineAsyncComponent(() => import('~/components/partials/header/actions/CourseDetailActions.vue'))
+    },
   }
   

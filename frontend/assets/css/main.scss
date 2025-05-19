@@ -160,6 +160,12 @@ input.form-control {
     background-color: var(--primary);
   }
 
+  &.btn-warning {
+    border: none;
+    color: $white;
+    background-color: var(--orange2);
+  }
+
   &.btn-disable {
     background-color: $grey;
   }

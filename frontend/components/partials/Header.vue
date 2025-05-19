@@ -15,8 +15,8 @@
               <i :class="`${sidebarShowIcon} text-lg`"></i>
           </button>
         </div>
-        <div :class="['pt-2 d-flex align-items-center flex-wrap flex-md-nowrap justify-content-between', extraContentHeader ? 'pb-2' : 'pb-3']">
-          <h2 class="fw-medium">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
+        <div :class="['pt-2 d-flex align-items-center justify-content-between gap-2', extraContentHeader ? 'pb-2' : 'pb-3']">
+          <h2 class="fw-medium text-limit limit-1">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
           <component 
             :is="actionHeader?.component"
             v-bind="actionHeader?.props"
