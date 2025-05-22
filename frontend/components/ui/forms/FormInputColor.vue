@@ -1,6 +1,6 @@
 <template>
     <div>
-      <label class="fw-medium mb-2">{{ label }}</label>
+      <label class="fw-medium mb-2">{{ label }} <span class="text-danger" v-if="required">*</span></label>
       <ul class="d-flex align-items-center gap-2 list-unstyled mb-0">
         <li
           v-for="color in colorList"
@@ -11,14 +11,13 @@
             height: '50px',
             backgroundColor: color,
             cursor: 'pointer',
-            border: modelValue === color ? '2px solid #0d6efd' : '2px solid #ffffff'
           }"
           @click="selectColor(color)"
         >
           <i
             v-if="modelValue === color"
-            class="ri-check-line d-flex align-items-center justify-content-center text-2xl rounded-pill"
-            style="width: 40px; height: 40px; color: #fff; background: rgba(0,0,0,0.12);"
+            class="ri-check-line d-flex align-items-center justify-content-center text-2xl rounded-pill text-white p-1 border border-3 border-white"
+            style="width: 40px; height: 40px;"
           ></i>
         </li>
       </ul>
@@ -53,6 +52,10 @@
     label: {
       type: String,
       default: "Pilih Warna"
+    },
+    required: {
+        type: Boolean,
+        default: false
     }
   })
   
@@ -70,6 +73,7 @@
   ]);
   
   function selectColor(color) {
+    console.log(color);
     emit('update:modelValue', color);
   }
   </script>

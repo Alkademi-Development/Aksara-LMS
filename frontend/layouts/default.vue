@@ -11,7 +11,7 @@
       </transition>
   
       <main
-        class="min-vh-100"
+        class="w-100 min-vh-100"
         :style="!isMobile && isSidebarVisible ? 'padding-left: 250px; padding-right: 0;' : 'padding-inline: 0;'"
       >
         <Header
