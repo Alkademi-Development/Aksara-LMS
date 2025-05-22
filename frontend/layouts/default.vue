@@ -10,8 +10,8 @@
         </aside>
       </transition>
   
-      <div
-        class="container min-vh-100"
+      <main
+        class="min-vh-100"
         :style="!isMobile && isSidebarVisible ? 'padding-left: 250px; padding-right: 0;' : 'padding-inline: 0;'"
       >
         <Header
@@ -21,7 +21,7 @@
         <div class="position-relative">
           <slot></slot>
         </div>
-      </div>
+      </main>
     </div>
 </template>
 
