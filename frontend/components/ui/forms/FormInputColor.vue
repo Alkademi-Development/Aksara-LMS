@@ -1,7 +1,7 @@
 <template>
     <div>
       <label class="fw-medium mb-2">{{ label }} <span class="text-danger" v-if="required">*</span></label>
-      <ul class="d-flex align-items-center gap-2 list-unstyled mb-0">
+      <ul class="d-flex align-items-center gap-2 flex-wrap flex-md-nowrap list-unstyled mb-0">
         <li
           v-for="color in colorList"
           :key="color"
@@ -10,15 +10,23 @@
             width: '50px',
             height: '50px',
             backgroundColor: color,
-            cursor: 'pointer',
+            cursor: disabled ? 'not-allowed' : 'pointer',
           }"
-          @click="selectColor(color)"
+          @click="!disabled && selectColor(color)"
         >
           <i
             v-if="modelValue === color"
             class="ri-check-line d-flex align-items-center justify-content-center text-2xl rounded-pill text-white p-1 border border-3 border-white"
             style="width: 40px; height: 40px;"
           ></i>
+        </li>
+        <!-- Tambakan satu li lagi untuk yg no color atau disable color -->
+        <li 
+            class="d-flex align-items-center justify-content-center rounded-pill bg-white border border-3 border-danger"
+            style="width: 50px; height: 50px;"
+            v-if="disabled"
+        >
+            <i class="ri-blur-off-line d-flex align-items-center justify-content-end text-2xl rounded-pill text-danger"></i>
         </li>
       </ul>
       <div v-if="error" class="small text-danger mt-1">
@@ -52,6 +60,10 @@
     label: {
       type: String,
       default: "Pilih Warna"
+    },
+    disabled: {
+        type: Boolean,
+        default: false
     },
     required: {
         type: Boolean,

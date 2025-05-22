@@ -40,7 +40,7 @@ const courseState = computed(() => store.state.courses)
 
 useSeo({
   layout: settings.value?.layout || 'alkademi',
-  siteName: settings.value?.title || 'Alkademi',
+  siteName: settings.value?.title || 'Dashboard | Alkademi',
   stores: {
     setting: settings.value || {},
     class: classState.value || {},

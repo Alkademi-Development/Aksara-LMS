@@ -63,11 +63,21 @@ return crumbs
 
 // Go back to previous path
 const goBack = () => {
-const crumbs = breadcrumbs.value
-if (crumbs.length > 1) {
-  const target = crumbs[crumbs.length - 2]
-  router.push(target.to)
-}
+  const crumbs = breadcrumbs.value
+
+  for (let i = crumbs.length - 2; i >= 0; i--) {
+    const crumb = crumbs[i]
+    const resolved = router.resolve(crumb.to)
+
+    // Jika halaman valid (tidak redirect ke 404)
+    if (resolved.name && resolved.matched.length > 0) {
+      router.push(crumb.to)
+      return
+    }
+  }
+
+  // Fallback ke dashboard kalau semuanya gagal
+  router.push('/dashboard')
 }
 
 </script>
