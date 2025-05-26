@@ -4,15 +4,15 @@
         <aside
           v-if="isSidebarVisible"
           :class="`position-fixed top-0 start-0 min-vh-100 h-100 bg-white border-end`"
-          style="width: 250px; z-index: 100;"
+          style="width: 270px; z-index: 100;"
         >
           <Sidebar />
         </aside>
       </transition>
   
-      <div
-        class="container min-vh-100"
-        :style="!isMobile && isSidebarVisible ? 'padding-left: 250px; padding-right: 0;' : 'padding-inline: 0;'"
+      <main
+        class="w-100 min-vh-100"
+        :style="!isMobile && isSidebarVisible ? 'padding-left: 270px; padding-right: 0;' : 'padding-inline: 0;'"
       >
         <Header
           :isSidebarVisible="isSidebarVisible"
@@ -21,7 +21,7 @@
         <div class="position-relative">
           <slot></slot>
         </div>
-      </div>
+      </main>
     </div>
 </template>
 
@@ -40,7 +40,7 @@ const courseState = computed(() => store.state.courses)
 
 useSeo({
   layout: settings.value?.layout || 'alkademi',
-  siteName: settings.value?.title || 'Alkademi',
+  siteName: settings.value?.title || 'Dashboard | Alkademi',
   stores: {
     setting: settings.value || {},
     class: classState.value || {},

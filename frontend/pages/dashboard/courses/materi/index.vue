@@ -25,9 +25,6 @@
                     <CardCourse />
                 </div>
             </div>
-            <div class="d-flex align-items-center justify-content-center mt-4">
-                <NuxtLink to="/dashboard/courses/all" class="btn btn-outline-primary px-8 py-2 rounded text-md">Lihat Semua</NuxtLink>
-            </div>
             <!-- <p class="text-xl text-center my-10">Bundle Belum Tersedia</p> -->
         </div>
     </div>

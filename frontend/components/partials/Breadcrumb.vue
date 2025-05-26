@@ -41,33 +41,81 @@ const router = useRouter()
 const segments = computed(() => route.path.split('/').filter(Boolean))
 
 const breadcrumbs = computed(() => {
-const crumbs = []
-let pathAcc = ''
+  const crumbs = []
+  let pathAcc = ''
+  let lastValidPath = ''
 
-for (const segment of segments.value) {
-  // Skip numeric segments
-  if (!isNaN(Number(segment))) continue
 
-  pathAcc += `/${segment}`
+  for (const segment of segments.value) {
+    // Skip numeric segments
+    if (!isNaN(Number(segment))) continue
 
-  const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
-  crumbs.push({
-    to: pathAcc,
-    truncateTitle: String(truncateWords(translated))?.toUpperCase(),
-    title: translated
-  })
-}
+    pathAcc += `/${segment}`
 
-return crumbs
+    const resolved = router.resolve(pathAcc)
+    const isValid = resolved.name && resolved.matched.length > 0
+
+    const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
+
+    // Kalau valid, simpan path aslinya
+    if (isValid) {
+      lastValidPath = pathAcc
+    }
+
+    crumbs.push({
+      to: isValid ? pathAcc : lastValidPath, // arahkan ke valid path
+      truncateTitle: String(truncateWords(translated))?.toUpperCase(),
+      title: translated,
+      valid: isValid,
+    })
+  }
+
+  return crumbs
 })
+
+// Intercept breadcrumb click
+const handleBreadcrumbClick = (targetCrumb) => {
+  const resolved = router.resolve(targetCrumb.to)
+
+  if (resolved.name && resolved.matched.length > 0) {
+    // Path valid → langsung navigasi
+    router.push(targetCrumb.to)
+    return
+  }
+
+  // Jika tidak valid → cari breadcrumb sebelumnya yang valid
+  const crumbs = breadcrumbs.value
+  const index = crumbs.findIndex(c => c.to === targetCrumb.to)
+
+  for (let i = index - 1; i >= 0; i--) {
+    const resolvedCrumb = router.resolve(crumbs[i].to)
+    if (resolvedCrumb.name && resolvedCrumb.matched.length > 0) {
+      router.push(crumbs[i].to)
+      return
+    }
+  }
+
+  // Fallback terakhir
+  router.push('/dashboard')
+}
 
 // Go back to previous path
 const goBack = () => {
-const crumbs = breadcrumbs.value
-if (crumbs.length > 1) {
-  const target = crumbs[crumbs.length - 2]
-  router.push(target.to)
-}
+  const crumbs = breadcrumbs.value
+
+  for (let i = crumbs.length - 2; i >= 0; i--) {
+    const crumb = crumbs[i]
+    const resolved = router.resolve(crumb.to)
+
+    // Jika halaman valid (tidak redirect ke 404)
+    if (resolved.name && resolved.matched.length > 0) {
+      router.push(crumb.to)
+      return
+    }
+  }
+
+  // Fallback ke dashboard kalau semuanya gagal
+  router.push('/dashboard')
 }
 
 </script>

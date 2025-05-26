@@ -30,6 +30,17 @@ export const actionHeaderComponents = {
     },
     'dashboard-classroom-slug': {
         component: defineAsyncComponent(() => import('@/components/partials/header/actions/BadgeStatusRegistration.vue'))
-    }
+    },
+    'dashboard-courses-modules-slug': {
+        component: defineAsyncComponent(() => import('~/components/partials/header/actions/CourseDetailActions.vue'))
+    },
+    'dashboard-courses-bundle-slug': {
+      component: defineAsyncComponent(() => import('@/components/partials/header/actions/HeaderActionButton.vue')),
+      props: {
+        label: 'Bundle',
+        to: (route) => `/dashboard/courses/bundle/edit/${route?.params?.slug}`,
+        icon: 'ri-pencil-line',
+      }
+    },
   }
   

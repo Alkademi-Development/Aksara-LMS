@@ -15,8 +15,8 @@
               <i :class="`${sidebarShowIcon} text-lg`"></i>
           </button>
         </div>
-        <div :class="['pt-2 d-flex align-items-center flex-wrap flex-md-nowrap justify-content-between', extraContentHeader ? 'pb-2' : 'pb-3']">
-          <h2 class="fw-medium">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
+        <div :class="['pt-2 d-flex align-items-center justify-content-between gap-2', extraContentHeader ? 'pb-2' : 'pb-3']">
+          <h2 class="fw-medium text-limit limit-1">{{ breadcrumbs[breadcrumbs.length - 1]?.title || '' }}</h2>
           <component 
             :is="actionHeader?.component"
             v-bind="actionHeader?.props"
@@ -70,9 +70,17 @@ const actionHeader = computed(() => {
   const config = actionHeaderComponents[currentRouteName.value]
   if (!config) return null
 
+  const props = {
+    ...config.props,
+  }
+
+  if (typeof props.to === 'function') {
+    props.to = props.to(route)
+  }
+
   return {
     component: config.component,
-    props: config.props || {}
+    props,
   }
 })
 
@@ -93,6 +101,7 @@ const segments = computed(() => route.path.split('/').filter(Boolean))
 
 const breadcrumbs = computed(() => {
   const crumbs = []
+  const routeName = route.name;
   let pathAcc = ''
 
   for (const segment of segments.value) {
@@ -101,7 +110,7 @@ const breadcrumbs = computed(() => {
 
     pathAcc += `/${segment}`
 
-    const translated = breadcrumbTitleMap[pathAcc] || formatBreadcrumbSegment(segment)
+    const translated = breadcrumbTitleMap[pathAcc] || breadcrumbTitleMap[routeName] || formatBreadcrumbSegment(segment)
     crumbs.push({
       to: pathAcc,
       truncateTitle: String(truncateWords(translated))?.toUpperCase(),

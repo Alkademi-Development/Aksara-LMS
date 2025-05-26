@@ -2,27 +2,27 @@
     <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-end justify-content-sm-between flex-wrap gap-2">
             <FilterSearchAndSort />
-            <NuxtLink to="/dashboard/courses/bundle" class="btn btn-primary d-flex align-items-center gap-2">
+            <NuxtLink to="/dashboard/courses/bundle/create" class="btn btn-primary d-flex align-items-center gap-2">
                 <i class="ri-add-line text-md"></i>
                 <span>Paket</span>
             </NuxtLink>
         </div>
         <div>
             <div class="row row-gap-3 mt-4">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <CardCourse />
+                <div class="col-12 col-md-6">
+                    <CardBundle />
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <CardCourse />
+                <div class="col-12 col-md-6">
+                    <CardBundle />
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <CardCourse />
+                <div class="col-12 col-md-6">
+                    <CardBundle />
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <CardCourse />
+                <div class="col-12 col-md-6">
+                    <CardBundle />
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <CardCourse />
+                <div class="col-12 col-md-6">
+                    <CardBundle />
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center mt-4">
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import CardCourse from "@/components/cards/CardCourse.vue";
+import CardBundle from "@/components/cards/CardBundle.vue";
 import FilterSearchAndSort from "@/components/partials/FilterSearchAndSort";
 
 </script>

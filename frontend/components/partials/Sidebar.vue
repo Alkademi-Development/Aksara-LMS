@@ -4,19 +4,10 @@
             <div>
                 <div class="mb-4 text-center">
                     <a href="#">
-                        <img src="@/assets/images/logo-alkademi.png" class="w-100" alt="Logo Alkademi" style="max-width: 200px;">
+                        <img src="@/assets/images/logo-alkademi.png" class="w-100" alt="Logo Alkademi" style="max-width: 250px;">
                     </a>
                 </div>
-                <button type="button" class="w-100 d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-start gap-3">
-                        <img src="https://drive.alkademi.id/v1/upload/profile/1739443896728.png" alt="Photo Profile" width="40" class="mx-auto">
-                        <div class="text-start">
-                            <h5 class="fw-normal">Alkademi</h5>
-                            <p class="text-sm text-black">Super Admin</p>
-                        </div>
-                    </div>
-                    <i class="ri-arrow-right-s-line text-lg"></i>
-                </button>
+                <ProfileMenu />
             </div>
         </div>
 
@@ -55,6 +46,8 @@
 </template>
 
 <script setup>
+import ProfileMenu from './ProfileMenu.vue';
+
 const route = useRoute()
 
 </script>
