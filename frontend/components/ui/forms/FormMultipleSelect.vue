@@ -17,19 +17,22 @@
     </div>
 
     <div v-if="dropdownOpen" class="dropdown-list">
-      <div
-        v-for="option in options"
-        :key="option.value"
-        class="dropdown-item"
-        @click.stop="toggleSelect(option.value)"
-      >
-        <input
-          type="checkbox"
-          :checked="isSelected(option.value)"
-          @change.stop="toggleSelect(option.value)"
-        />
-        <span class="option-label">{{ option.label }}</span>
-      </div>
+      <template v-if="options?.length > 0">
+        <div
+          v-for="option in options"
+          :key="option.value"
+          class="dropdown-item"
+          @click.stop="toggleSelect(option.value)"
+        >
+          <span class="option-label">{{ option.label }}</span>
+          <input
+            type="checkbox"
+            :checked="isSelected(option.value)"
+            @change.stop="toggleSelect(option.value)"
+          />
+        </div>
+      </template>
+      <p class="text-md fw-medium px-2 py-3 d-flex align-items-center justify-content-center" v-else>{{ emptyStateMessage }}</p>
     </div>
 
     <!-- Selected tags -->
@@ -60,7 +63,8 @@ const props = defineProps({
   placeholder: { type: String, default: "Pilih..." },
   required: { type: Boolean, default: false },
   tagPosition: { type: String, default: 'vertical '},
-  error: { type: String, default: "" },   
+  error: { type: String, default: "" },
+  emptyStateMessage: { type: String, default: "Data belum tersedia" },   
   customMessages: {
     type: Object,
     default: () => ({
@@ -125,7 +129,9 @@ function removeOption(val) {
 }
 
 const selectedOptions = computed(() =>
-  props.options.filter(opt => props.modelValue.includes(opt.value))
+  props.options.filter(opt => {
+    return props.modelValue.includes(opt.value)
+  })
 );
 
 const errorMessage = computed(() => {
@@ -138,7 +144,7 @@ const errorMessage = computed(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .multiple-select {
   width: 100%;
   position: relative;
@@ -177,10 +183,16 @@ const errorMessage = computed(() => {
 .dropdown-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
   cursor: pointer;
   user-select: none;
   transition: all .1s;
+
+  &:hover {
+    background-color: var(--primary) !important;
+    color: white;
+  }
 }
 .dropdown-item:hover {
   background: var(--grey4);

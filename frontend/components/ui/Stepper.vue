@@ -2,7 +2,7 @@
     <div class="stepper d-flex align-items-center">
       <template v-for="(step, idx) in steps" :key="idx">
         <!-- Step Circle & Label -->
-        <div class="d-flex align-items-center">
+        <div :class="['d-flex align-items-center', wrapLabel ? 'flex-column' : 'flex-row']">
           <div
             class="step-circle"
             :class="{
@@ -33,7 +33,8 @@
 <script setup>
 const props = defineProps({
     steps: { type: Array, required: true },     
-    modelValue: { type: Number, required: true }
+    modelValue: { type: Number, required: true },
+    wrapLabel: { type: Boolean, default: false }
 });
 </script>
   
@@ -42,8 +43,8 @@ const props = defineProps({
     width: 100%;
   }
   .step-circle {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     border: 2px solid var(--grey);
     border-radius: 50%;
     display: flex;
@@ -51,7 +52,7 @@ const props = defineProps({
     justify-content: center;
     color: var(--grey2);
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     background: white;
     box-shadow: 0 0 6px rgba(0,0,0,0.04);
     transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;

@@ -14,24 +14,24 @@
         <nav class="d-flex flex-column flex-grow-1 overflow-auto">
             <NuxtLink to="/dashboard/classroom" class="py-3 px-4 d-flex align-items-center gap-3">
                 <i :class="`${route.path.includes('/dashboard/classroom') ? 'text-primary' : 'text-black'} ri-stack-fill text-md`"></i>
-                <span :class="`${route.path.includes('/dashboard/classroom') ? 'text-black' : 'text-black'} text-sm fw-normal`">Kelas</span>
+                <span :class="`${route.path.includes('/dashboard/classroom') ? 'text-black' : 'text-black'} text-sm`">Kelas</span>
             </NuxtLink>
             <NuxtLink to="/dashboard/reviews" class="py-3 px-4 d-flex align-items-center gap-3">
                 <i :class="`${route.path.includes('/dashboard/reviews') ? 'text-primary' : 'text-black'} ri-file-search-line text-md`"></i>
-                <span :class="`${route.path.includes('/dashboard/reviews') ? 'text-black' : 'text-black'} text-sm fw-normal`">Review Tugas</span>
+                <span :class="`${route.path.includes('/dashboard/reviews') ? 'text-black' : 'text-black'} text-sm`">Review Tugas</span>
             </NuxtLink>
             <NuxtLink to="/dashboard/schedules" class="py-3 px-4 d-flex align-items-center gap-3">
                 <i :class="`${route.path.includes('/dashboard/schedules') ? 'text-primary' : 'text-black'} ri-calendar-event-fill text-md`"></i>
-                <span :class="`${route.path.includes('/dashboard/schedules') ? 'text-black' : 'text-black'} text-sm fw-normal`">Jadwal Kegiatan</span>
+                <span :class="`${route.path.includes('/dashboard/schedules') ? 'text-black' : 'text-black'} text-sm`">Jadwal Kegiatan</span>
             </NuxtLink>
             <NuxtLink to="/dashboard/courses" class="py-3 px-4 d-flex align-items-center gap-3">
                 <i :class="`${route.path.includes('/dashboard/courses') ? 'text-primary' : 'text-black'} ri-book-line text-md`"></i>
-                <span :class="`${route.path.includes('/dashboard/courses') ? 'text-black' : 'text-black'} text-sm fw-normal`">Pustaka</span>
+                <span :class="`${route.path.includes('/dashboard/courses') ? 'text-black' : 'text-black'} text-sm`">Pustaka</span>
             </NuxtLink>
             <hr>
             <NuxtLink to="/dashboard/studio" class="py-3 px-4 d-flex align-items-center gap-3">
                 <i :class="`${route.path.includes('/dashboard/studio') ? 'text-primary' : 'text-black'} ri-code-box-line text-md`"></i>
-                <span :class="`${route.path.includes('/dashboard/studio') ? 'text-black' : 'text-black'} text-sm fw-normal`">Studio</span>
+                <span :class="`${route.path.includes('/dashboard/studio') ? 'text-black' : 'text-black'} text-sm`">Studio</span>
             </NuxtLink>
         </nav>
 
@@ -53,5 +53,9 @@ const route = useRoute()
 </script>
 
 <style scoped>
+
+.router-link-active span {
+    font-weight: 600;
+}
 
 </style>

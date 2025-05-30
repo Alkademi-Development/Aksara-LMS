@@ -153,7 +153,13 @@ input.form-control {
   transition: 0.3s ease-in-out;
 
   &:hover {
+    transform: translateY(-1.5px);
     color: rgba($white, 0.8);
+  }
+
+  &.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: white !important;
   }
   
   &.btn-primary {
@@ -167,7 +173,26 @@ input.form-control {
     background-color: var(--orange2);
   }
 
+  &.btn-warning-secondary {
+    border: none;
+    color: $white;
+    background-color: var(--yellow);
+  }
+
   &.btn-disable {
     background-color: $grey;
+    color: $black;
+
+    &:hover {
+      color: $grey3;
+    }
   }
+}
+
+/**
+** =========== Bootstraps ==============
+*/
+
+.modal-body, .modal-content {
+  overflow: visible !important;
 }

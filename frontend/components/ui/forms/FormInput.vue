@@ -118,6 +118,8 @@
                 </slot>
             </span>
         </div>
+
+        <p class="text-grey2 text-sm mt-1" v-if="helperText">{{ helperText }}</p>
     </BFormGroup>
 </template>
 
@@ -144,6 +146,10 @@ const props = defineProps({
   options: { // Untuk select/radio: [{label, value}]
     type: Array,
     default: () => []
+  },
+  helperText: {
+    type: String,
+    default: ''
   },
   // Tambahkan prop untuk pesan kustom
   customMessages: {
