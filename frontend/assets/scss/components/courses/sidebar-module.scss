@@ -1,0 +1,137 @@
+.sidebar-timeline{
+  position: fixed;
+  width: 315px;
+  height: calc(100dvh - 118px);
+  transition: .3s;
+  z-index: 999;
+
+  &.expand-top{
+    @media(max-width: 415px){
+      height: calc(100dvh - 164px) !important;
+    }
+  }
+
+  &.not-expand-top{
+    @media(max-width: 415px){
+      height: calc(100dvh - 118px) !important;
+    }
+  }
+
+  &.closed{
+    @media (max-width: 768px){
+      left: -315px;
+    }
+  }
+
+  &.open{
+    @media (max-width: 768px){
+      left: 0px;
+    }
+  }
+
+  &.type-student{
+    @media (min-width: 480px) and (max-width: 768px){
+      height: calc(100dvh - 135px) !important;
+    }
+  }
+}
+
+.sidebar-timeline.type-student{
+  .container-list-item{
+    @media (max-width: 480px) {
+      padding: 24px 24px 116px 24px !important;
+    }
+  }
+}
+
+.btn-expand{
+  position: absolute;
+  top: 113px;
+  right: -21px;
+  width: 20px;
+  height: 70px;
+  background: var(--bs-primary);
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+  z-index: 9999;
+
+  i{
+    font-size: 24px;
+    color: white;
+  }
+}
+
+.wrapper-list-item{
+  overflow-y: auto;
+  padding-right: 7px;
+
+  // &::-webkit-scrollbar{
+  //   width: 0px;
+  // }
+}
+
+.list-item{
+
+  i{
+    font-size: 18px;
+    color: rgba(0, 0, 0);
+  }
+
+  p{
+    font-size: 14px;
+    color: rgba(0, 0, 0);
+  }
+
+  &.active{
+    i{
+      color: var(--bs-primary);
+    }
+
+    p{
+      color: var(--bs-primary);
+    }
+  }
+
+  &.locked{
+    i{
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    p{
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.card-statistic{
+  .title-statistic{
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .counter-statistic{
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.wrapper-btn-action{
+  i{
+    transition: .3s;
+  }
+
+  i:hover{
+    transform: translateY(-4px);
+  }
+}
+
+.sidebar-backdrop{
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 118px);
+  background: rgba(0, 0, 0, 0.4);
+  right: 0;
+  z-index: 998;
+}

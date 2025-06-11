@@ -1,0 +1,122 @@
+@import "@/assets/scss/utilities/colors";
+@import "@/assets/scss/components/schedules/utilities/colors";
+
+#schedules-event {
+
+    .fc-category-item {
+        .green { color: $green; }
+        .blue { color: $blue; }
+        .peach { color: $peach; }
+        .purple { color: $purple; }
+    }
+
+    // ::v-deep {
+        .fc-col-header-cell {
+            padding: 8px 0;
+        }
+        // .fc-daygrid-day-events {
+            // min-height: 100px;
+        // }
+        // .fc-daygrid-event-harness-abs {
+        //     visibility: hidden;
+        //     &:first-child {
+        //         visibility: visible;
+        //     }
+        // }
+        .fc-col-header-cell-cushion {
+            font-family: var(--bs-font-heading);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            color: #333333;
+            text-transform: capitalize;
+        }
+
+        .fc-theme-standard .fc-scrollgrid, .fc-theme-standard td, .fc-theme-standard th {
+            border: 1px solid rgba(224, 224, 224, 0.5);
+        }
+
+        .fc-daygrid-day-number {
+            font-family: var(--bs-font-heading);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            color: #000000;
+        }
+
+        .fc-day {
+            cursor: pointer;
+        }
+
+        .fc-day-today {
+            background-color: white;
+            .fc-daygrid-day-number {
+                color: $primary;
+            }
+        }
+
+        .fc-daygrid-event {
+            padding: 0 8px;
+            font-weight: 400;
+            font-size: 12px;
+            font-family: var(--bs-font-heading);
+            border-radius: 1000px;
+            .fc-event-title-container {
+                display: flex;
+            }
+            .fc-event-title {
+                line-height: 100%;
+                padding: 0;
+            }
+        }
+
+        .fc-daygrid-more-link {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        // td.fc-daygrid-day .fc-event-start.fc-event-end {
+        //     border-color: #fff !important;
+        // }
+
+        // td.fc-daygrid-day .fc-event-start.fc-event-end::before {
+        //     content: '';
+        //     display: block;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 1em;
+        //     height: 1em;
+        //     border-radius: 100%;
+        //     background: inherit;
+        //     z-index: 10;
+        // }
+        // td.fc-daygrid-day .fc-event-start.fc-event-end::after {
+        //     content: '';
+        //     display: block;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     background: #fff;
+        // }
+
+        // td.fc-daygrid-day .fc-event-start.fc-event-end .fc-event-title {
+        //     color: rgba(0, 0, 0, 0.5);
+        //     padding-left: .6em;
+        // }
+
+        .fc-popover {
+            z-index: 60;
+        }
+
+        .fc-daygrid-dot-event {
+            .fc-event-title {
+                font-weight: 500;
+            }
+        }
+    // }
+}

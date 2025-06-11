@@ -1,0 +1,177 @@
+@import '../buttons.scss';
+
+.btn {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: capitalize;
+}
+
+.form-group {
+    label {
+        color: #000000;
+        font-size: 12px;
+    }
+
+    .form-control {
+        font-size: 14px;
+
+        &:focus {
+            border-color: $primary;
+        }
+    }
+}
+
+.toggle-btn {
+    margin-left: 24px;
+
+    ::v-deep .dropdown-toggle  {
+        background-color: white;
+    }
+
+
+    ::v-deep .vs__clear {
+        margin: 0;
+        padding: 6px;
+    }
+
+    ::v-deep .vs__search {
+        padding: 0
+    }
+
+    ::v-deep .vs__selected {
+        padding: 6px 12px;
+        margin: 0;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    ::v-deep &.show {
+        background-color: #fff;
+    }
+
+    ::v-deep .btn-outline-primary {
+
+        &:active {
+            background-color: #fff;
+        }
+    }
+
+    ::v-deep button {
+        @extend .btn
+    }
+
+}
+
+.filter-container {
+    width: 100%;
+    border: 1px solid var(--bs-primary);
+    border-radius: 6px;
+    background-color: #fff;
+
+    .btn {
+        color: var(--bs-primary);
+        background-color: #fff;
+        border-radius: 6px 0 0 6px;
+
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+
+    .sort-button {
+        height: 38px;
+        min-width: fit-content;
+    }
+
+    .dropdown-menu {
+
+        .dropdown-item {
+            cursor: pointer;
+            max-width: 100%;         // Mencegah overflow dalam item dropdown
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .search-input {
+        width: 100%;
+        margin: 0;
+        border-radius: 0 6px 6px 0;
+        color: rgba(0, 0, 0, 0.5);
+
+        i {
+            font-size: 15px;
+        }
+
+        input {
+            border-radius: 0 6px 6px 0;
+            height: 39px;
+            border: 0;
+
+            // padding-left: 6px;
+
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+}
+
+.score-forms-container {
+
+    .score-label {
+        color: var(--bs-primary);
+    }
+
+    .score-input {
+        min-width: 200px;
+        height: 32px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        color: rgba(0, 0, 0, 0.4);
+        border-radius: 6px;
+        border: 1px solid var(--bs-primary);
+    }
+
+    .select-course {
+        @extend .score-input;
+
+        ::v-deep .vs__dropdown-toggle {
+            padding: 0;
+            border: none;
+            height: 32px;
+            max-width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            .drop-icon {
+                font-size: 15px;
+            }
+
+            .vs__selected-options {
+                padding: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            input {
+                width: 0px;
+                margin: 0;
+                padding: 0 12px;
+            }
+
+            .vs__actions {
+                padding: 0 12px;
+            }
+        }
+    }
+}

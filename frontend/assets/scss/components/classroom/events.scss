@@ -1,0 +1,119 @@
+
+#event {
+    @import '/assets/scss/components/micro/buttons.scss';
+
+    .event-card {
+        min-height: 260px;
+
+        .header {
+            
+            margin-bottom: 24px;
+
+            .title-container {
+                margin-bottom: 12px;
+
+                .title {
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+    
+                    color: #000000;
+                }
+    
+            }
+
+            .description {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 17px;
+
+                color: rgba(0, 0, 0, 0.5);
+                
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;  
+                overflow: hidden;
+            }
+
+        }
+
+        .content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            i {
+                margin-right: 6px;
+            }
+
+            span {
+                font-size: 12px;
+            }
+
+            .date, .time {
+                margin-right: 12px;
+
+                span {
+                    color: rgba(0, 0, 0, 0.65);
+                }
+                
+            }
+
+            .location {
+                
+                color: #000000;
+                
+                .desc {
+                    font-size: 12px;
+                    text-transform: capitalize;
+                }
+
+                span {
+                    color: rgba(0, 0, 0, 0.65);
+                }
+            }
+        }
+
+        .footer {
+            padding: 0;
+
+            .btn {
+                font-size: 14px;
+                text-transform: capitalize;
+                padding-bottom: 0;
+    
+                i {
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .action-container {
+
+            .action {
+                line-height: 16px;
+                padding: 4px;
+                margin-left: 8px;
+                cursor: pointer;
+    
+                i {
+                    font-size: 14px;
+                }
+            }
+    
+        }
+    
+        &:hover {
+    
+            .action {
+                z-index: 99;
+                transition: ease-in-out 0.5s !important;
+    
+                &:hover {
+                    transform: translateY(-4px);
+                }
+            }
+        }
+    }
+}

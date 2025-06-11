@@ -1,0 +1,24 @@
+.navbar-nav {
+
+    .nav-item {
+
+        .nav-link {
+
+            .ri-icon {
+                font-weight: 500; 
+                font-size: 18px; 
+                min-width: inherit; 
+                margin-right: 12px;
+            }
+
+            span {
+                font-size: 13px !important;
+            }
+        }
+
+        .nav-link[data-toggle=collapse][aria-expanded=true]:after {
+            color: var(--bs-primary);
+        }
+    }
+
+}

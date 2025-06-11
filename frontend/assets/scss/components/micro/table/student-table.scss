@@ -1,0 +1,55 @@
+@import '../../../utilities/colors';
+
+#student-table {
+
+    .table .thead-light th {
+        background-color: #F9F9F9;
+        color: rgba(0, 0, 0, 0.65);
+        letter-spacing: normal;
+        text-transform: none;
+    }
+    
+    .table thead th, .table td {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+    
+    .table tr, .table th {
+        border: none !important;
+    }
+    
+    .b-table-busy-slot {
+        strong {
+            line-height: 100%;
+        }
+    }
+    
+    .name-link {
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: var(--bs-primary);
+    
+        &:hover {
+            color: var(--bs-primary) !important;
+        }
+    }
+
+    .course-item {
+        padding: 8px 24px 8px 0px;
+        cursor: pointer;
+    }
+    
+    .btn-score, span {
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+    
+        i {
+            margin-left: 2px;
+        }
+    }
+}

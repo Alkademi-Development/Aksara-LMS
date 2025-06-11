@@ -1,0 +1,42 @@
+.description-course,
+.description-course p,
+.description-course ol li,
+.description-course ul li{
+  font-size: 14px !important;
+  color: rgb(0, 0, 0) !important;
+  font-weight: 400 !important;
+  line-height: 2;
+}
+
+.description-course{
+  p{
+    a{
+      font-size: 14px !important;
+      color: #1B75D0;
+      text-decoration: underline;
+      line-height: 2;
+    }
+
+    img{
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  blockquote{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+    unicode-bidi: isolate;
+    line-height: 2;
+  }
+
+  iframe{
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 16 / 9;
+  }
+}

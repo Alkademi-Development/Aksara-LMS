@@ -1,0 +1,324 @@
+@import "../../utilities/colors";
+
+#class-overview {
+    body {
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        color: #000000;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+        color: #000000;
+
+        margin-bottom: 24px;
+    }
+
+    p,
+    a,
+    span,
+    strong {
+        color: #000000;
+        margin-bottom: 12px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    h6 {
+        font-size: 14px;
+    }
+
+    p,
+    span {
+        font-size: 14px;
+    }
+
+    .btn-pencil {
+        i {
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+
+    .card {
+
+        .card-body {
+            padding: 12px 24px;
+
+            h5 {
+                margin-bottom: 12px;
+            }
+
+            .cities-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+
+                .badge-gray {
+                    display: inline-block;
+                    white-space: nowrap;
+                    padding: 6px 12px;
+                    border-radius: 50px;
+                    background: #EBEBF0;
+                }
+
+            }
+        }
+
+    }
+
+    .card-cities {
+
+        &.border-green {
+            border-width: 1px 1px 1px 6px !important;
+            border-style: solid;
+            border-color: #2FCC71 !important;
+        }
+
+        &.border-blue {
+            border-width: 1px 1px 1px 6px !important;
+            border-style: solid;
+            border-color: #2096C4 !important;
+        }
+
+        h6 {
+            margin-bottom: 12px;
+        }
+
+        p,
+        span {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    }
+
+    .card-logo {
+
+        .card-body {
+            padding: 24px;
+
+            .img-logo {
+                width: auto;
+                height: 100%;
+                max-width: 100%;
+                max-height: 145px;
+                object-fit: contain;
+            }
+        }
+
+    }
+
+    .card-description {
+        .card-body {
+            ::v-deep p:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            span {
+                font-size: 12px;
+                margin-bottom: 0px;
+            }
+
+            .badge-gray {
+                display: inline-block;
+                white-space: nowrap;
+                padding: 6px 12px;
+                border-radius: 50px;
+                background: #EBEBF0;
+            }
+
+        }
+    }
+
+    .btn-action-add {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+
+        text-transform: capitalize;
+
+        i {
+            margin-left: 20px;
+            font-size: 10px;
+        }
+
+        &.disabled {
+            border-color: $primary;
+            font-weight: 600;
+            opacity: 1;
+            box-shadow: none;
+            transform: none;
+        }
+    }
+
+    .card-group {
+        .card-body {
+            padding: 24px;
+
+            .box-title {
+                margin-bottom: 12px;
+
+                i {
+                    color: #000000;
+                }
+            }
+
+            a {
+                color: $primary;
+                font-size: 14px;
+                line-height: 130%;
+                word-break: break-all;
+                margin-bottom: 0;
+
+                &.btn-join {
+                    color: white;
+                    &:hover {
+                        color: white;
+                    }
+                }
+
+                &.link-group {
+                    &:hover {
+                        text-decoration: underline;
+                        color: $primary;
+                    }
+                }
+            }
+
+            .input-grup {
+                height: auto;
+                padding: 8px 12px;
+
+                &:focus {
+                    border-color: $primary;
+                }
+            }
+
+            :last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .card-users {
+
+        .card-body {
+            padding: 24px;
+
+            h5 {
+                font-size: 16px;
+            }
+
+            .box-title {
+                margin-bottom: 12px;
+            }
+
+            .box-users {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 16px;
+
+                margin-bottom: 12px;
+
+                .box-img {
+
+                    .img-container {
+                        width: 60px;
+                        height: 60px;
+                        background-color: rgba(0, 0, 0, 0.2);
+                        border: 2px solid black;
+                        border-radius: 100%;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            background-color: white;
+                        }
+                    }
+
+                }
+
+                .box-profile {
+                    flex-grow: 1;
+
+                    p, h5 {
+                        margin-bottom: 0;
+                    }
+                }
+
+                a {
+                    margin-bottom: 0;
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+
+                .btn-remove {
+                    display: none;
+                }
+
+                &:hover {
+                    .btn-remove {
+                        display: block;
+                        transition: ease-in-out 0.25s !important;
+                        &:hover {
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+            }
+
+            :last-child {
+                margin-bottom: 0;
+            }
+
+        }
+
+    }
+}
+
+.preclass-wrapper{
+
+    .card-body{
+        padding: 24px;
+    }
+
+    .box-body{
+        .badge-gray {
+            display: inline-block;
+            white-space: wrap;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: #EBEBF0;
+        }
+    }
+}

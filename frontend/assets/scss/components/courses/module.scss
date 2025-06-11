@@ -1,0 +1,98 @@
+@import '../../utilities/colors';
+
+.author-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+
+    .author-img {
+        width: 32px;
+        height: 32px;
+        display: block;
+        background-color: #F56C61;
+        border-radius: 50%;
+    }
+
+    .author-name {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: $black;
+    }
+
+    .author-status {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.module-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.module-description {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 25px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.type-module {
+    
+    &.contain .card-header {
+        padding-bottom: 20px !important;
+        padding-left: 13px !important;
+    }
+    &.empty .card-header {
+        padding: 16px !important;
+    }
+
+    .type-module-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .type-module-item {
+            padding: 13px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 4px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: .2s linear;
+
+            &.active {
+                background-color: $primary;
+
+                span {
+                    color: $white;
+                }
+            }
+
+            span {
+                font-family: "Inter";
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            &:hover {
+                background: $primary;
+
+                span {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
