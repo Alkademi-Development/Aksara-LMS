@@ -337,7 +337,7 @@ export default {
         },
         async goToEditor(){
             this.isOpeningEditor = true
-            
+
             const appToken = `&appToken=${this.authState.appToken || localStorage.getItem('access_token')}`
             const redirectLms = "&redirectTo=" + window.location.href
 
@@ -397,7 +397,7 @@ export default {
             const url = `${baseUrl}/check?${redirect}${lmsId}`;
 
             setTimeout(() => {
-                window.open(url, '_blank');
+                // window.open(url, '_blank');
                 // console.log(url, 'URL')
                 this.isLoadQuiz = false
             }, 500);

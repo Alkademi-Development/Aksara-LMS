@@ -300,7 +300,6 @@ export default {
                 const generatedToken = `&generatedToken=${await appToken?.generatedToken()}`
                 const url = `${baseUrl}/check?${redirect}${lmsId}${codeToken}${generatedToken}`;
                 const handle =  window.open(url, 'Absen Masuk', params)
-                console.log(url, 289);
                 // if (!handle) window.open(url, 'Absen Masuk')
             }
         },

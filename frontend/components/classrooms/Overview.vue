@@ -8,7 +8,7 @@
             >
                 Anda telah terdaftar dan bisa mulai mengikuti seluruh kegiatan yang tersedia.
             </b-alert>
-            <b-alert 
+            <b-alert
             class="alert__cta d-flex flex-column flex-sm-row align-items-start align-items-sm-center mb-4"
             variant="primary"
             :show="classOverview?.registered && classOverview?.userState === -1">
@@ -52,17 +52,17 @@
                                 <div class="card-body py-4">
                                     <div class="mb-4">
                                         <h4 class="mb-4">Total pembayaran</h4>
-        
+
                                         <div class="d-flex flex-row justify-content-between items-center">
-                                            <b-skeleton class="w-100" v-if="isPaymentLoading" /> 
+                                            <b-skeleton class="w-100" v-if="isPaymentLoading" />
                                             <template v-else>
                                                 <p class="font-weight-500 mb-2">Harga kelas</p>
                                                 <p class="font-weight-600 mb-2">{{ formatRupiah(detailPayment?.amount) }}</p>
                                             </template>
                                         </div>
-        
+
                                         <div class="d-flex flex-row justify-content-between items-center">
-                                            <b-skeleton class="w-100" v-if="isPaymentLoading" /> 
+                                            <b-skeleton class="w-100" v-if="isPaymentLoading" />
                                             <template v-else>
                                                 <p class="font-weight-500 mb-0">VAT</p>
                                                 <p class="font-weight-600 mb-0">{{ formatRupiah(detailPayment?.vat) }}</p>
@@ -70,9 +70,9 @@
                                         </div>
 
                                         <hr class="my-2">
-        
+
                                         <div class="d-flex flex-row justify-content-between items-center">
-                                            <b-skeleton class="w-100" v-if="isPaymentLoading" /> 
+                                            <b-skeleton class="w-100" v-if="isPaymentLoading" />
                                             <template v-else>
                                                 <p class="font-weight-500 mb-2">Total harga</p>
                                                 <p class="font-weight-600 color-primary mb-2">{{ formatRupiah(detailPayment?.total) }}</p>
@@ -88,7 +88,7 @@
                                             class="btn-action-add mb-2"
                                             block
                                             @click="onClickPayClass()"
-                                        >{{ countdownPayment?.isExpired ? 'Bayar ulang' : 'Bayar Sekarang' }}</b-button>    
+                                        >{{ countdownPayment?.isExpired ? 'Bayar ulang' : 'Bayar Sekarang' }}</b-button>
 
                                         <p :class="[countdownPayment?.isExpired ? 'text-danger' : 'text-primary', 'font-weight-500']">
                                             {{ countdownPayment?.message }}
@@ -349,7 +349,7 @@
 
             <!-- Right Content -->
             <b-col cols="12" lg="4">
-                
+
                 <b-card class="border card-group" v-if="classOverview?.price > 0">
                     <h4 class="mb-0">Harga Kelas</h4>
                     <h5 class="text-primary">{{ formatRupiah(classOverview?.price) }}</h5>
@@ -384,9 +384,9 @@
                                         <div class="card-body py-4">
                                             <div class="mb-4">
                                                 <h4 class="mb-4">Total pembayaran</h4>
-                
+
                                                 <div class="d-flex flex-row justify-content-between items-center">
-                                                    <b-skeleton class="w-100" v-if="isPaymentLoading" /> 
+                                                    <b-skeleton class="w-100" v-if="isPaymentLoading" />
                                                     <template v-else>
                                                         <p class="font-weight-500 mb-2">Harga kelas</p>
                                                         <p class="font-weight-600 mb-2">{{ formatRupiah(detailPayment?.amount) }}</p>
@@ -394,26 +394,26 @@
                                                 </div>
 
                                                 <div class="d-flex flex-row justify-content-between items-center">
-                                                    <b-skeleton class="w-100" v-if="isPaymentLoading" /> 
+                                                    <b-skeleton class="w-100" v-if="isPaymentLoading" />
                                                     <template v-else>
                                                         <p class="font-weight-500 mb-0">VAT</p>
                                                         <p class="font-weight-600 mb-0">{{ formatRupiah(detailPayment?.vat) }}</p>
                                                     </template>
                                                 </div>
-    
+
                                                 <hr class="my-2">
-                
+
                                                 <div class="d-flex flex-row justify-content-between items-center">
-                                                    <b-skeleton class="w-100" v-if="isPaymentLoading" /> 
+                                                    <b-skeleton class="w-100" v-if="isPaymentLoading" />
                                                     <template v-else>
                                                         <p class="font-weight-500 mb-2">Total harga</p>
                                                         <p class="font-weight-600 color-primary mb-2">{{ formatRupiah(detailPayment?.total) }}</p>
                                                     </template>
                                                 </div>
                                             </div>
-    
+
                                             <b-skeleton v-if="isPaymentLoading" class="w-100" />
-    
+
                                             <template v-else>
                                                 <b-button
                                                     variant="primary"
@@ -464,7 +464,7 @@
                                                 class="btn-action-add"
                                                 block
                                                 @click="btnClassClick()"
-                                            >Daftar Sekarang</b-button>    
+                                            >Daftar Sekarang</b-button>
                                         </template>
                                     </div>
                                 </div>
@@ -1112,13 +1112,13 @@ export default {
         calculateCountdown(created_at, hours) {
             // Parse the created_at date
             const createdDate = new Date(created_at);
-            
+
             // Calculate the target date by adding specified hours to creation date
             const targetDate = new Date(createdDate.getTime() + (hours * 60 * 60 * 1000));
-            
+
             // Get current time
             const now = new Date();
-            
+
             // Calculate time difference
             const timeDiff = targetDate.getTime() - now.getTime();
 
@@ -1132,17 +1132,17 @@ export default {
                     progress: 100
                 };
             }
-            
+
             // Calculate remaining time
             const remainingHours = Math.floor(timeDiff / (1000 * 60 * 60));
             const remainingMinutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const remainingSeconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-            
+
             // Calculate progress percentage
             const totalDuration = hours * 60 * 60 * 1000;
             const elapsedTime = totalDuration - timeDiff;
             const progress = Math.min(Math.max((elapsedTime / totalDuration) * 100, 0), 100);
-        
+
             return {
                 isExpired: false,
                 status: 'Active',
@@ -1156,7 +1156,7 @@ export default {
                 message: `Lakukan pembayaran sebelum ${remainingHours}:${remainingMinutes}`
             };
         },
-        
+
         /**
          * Pad single digit numbers with a leading zero
          * @param {number} num - Number to pad
@@ -1198,10 +1198,10 @@ export default {
 
             try {
                 const class_slug = this.$route.params.classroom
-                
+
                 if (class_slug) {
                     await this.postClassRepay(class_slug)
-    
+
                     if(!this.paymentState.status) {
                         console.error('Failed fetch class payment', this.paymentState.message)
                         this.setEvent(this.paymentState.message, false)
@@ -1209,9 +1209,9 @@ export default {
                         this.detailPayment = this.paymentState.classPaymentInvoice
 
                         console.log('Payment detail:', this.detailPayment)
-    
+
                         this.countdownPayment = this.calculateCountdown(this.detailPayment?.created_at, this.detailPayment?.expiry)
-    
+
                         return this.detailPayment
                     }
                 }
@@ -1224,13 +1224,13 @@ export default {
 
         async getClassPayment() {
             this.isPaymentLoading = true
-            
+
             try {
                 const class_slug = this.$route.params.classroom
-    
+
                 if (class_slug) {
                     await this.fetchClassPaymentInvoice(class_slug)
-        
+
                     if(!this.paymentState.status) {
                         console.error('Failed fetch class payment', this.paymentState.message)
                         this.setEvent(this.paymentState.message, false)
@@ -1238,7 +1238,7 @@ export default {
                         this.detailPayment = this.paymentState.classPaymentInvoice
 
                         this.countdownPayment = this.calculateCountdown(this.detailPayment?.created_at, this.detailPayment?.expiry)
-    
+
                         return this.detailPayment
                     }
                 }
@@ -1285,7 +1285,7 @@ export default {
             });
         },
 
-        checkComponentLoaded(){        
+        checkComponentLoaded(){
             this.classOverview = this.detailOverview
             if (this.isComponentLoaded && this.classOverview) {
                 this.processingDataOverview();
@@ -1303,7 +1303,7 @@ export default {
                 this.isLoaded = false;
             }
 
-            // Activate payment checker when student is registered and not yet paid 
+            // Activate payment checker when student is registered and not yet paid
             if (this.classOverview) {
                 if (this.classOverview?.registered && this.classOverview?.userState === -1) {
                     this.getClassPayment()
@@ -1850,7 +1850,7 @@ export default {
 
                     display: -webkit-box;
                     -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical; 
+                    -webkit-box-orient: vertical;
                     overflow: hidden;
                 }
             }
