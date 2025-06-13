@@ -1,4 +1,4 @@
-<template>  
+<template>
     <div>
 
         <!-- Header -->
@@ -6,7 +6,7 @@
 
         <!-- Page content -->
         <div class="container-fluid pt-4">
-            
+
             <!-- Content Begin -->
             <!-- Role 1 = Admin  || Role 9 = Lead Region -->
             <Admin v-if="role == 'admin' || role == 'superadmin' || role == 'lead_program'" />
@@ -65,7 +65,7 @@ export default {
     },
     computed: {
         ...mapState({
-            saasState: (state) => state.Sass
+            sassState: (state) => state.Sass
         })
     },
     data() {
@@ -76,7 +76,7 @@ export default {
         }
     },
     mounted() {
-        this.isTestCase = this.saasState.isTestCase
+        this.isTestCase = this.sassState.isTestCase
         this.changeTitle(null)
     },
     methods: {

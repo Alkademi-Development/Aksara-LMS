@@ -126,7 +126,7 @@ export default {
 			} else {
 				if (this.sassState.settings == null || JSON.stringify(this.sassState.settings) == '{}') await this.setupSettings(false)
 				await this.setupSettings(true);
-			}	
+			}
 		},
 		async setupSettings(isDefault) {
 			if (isDefault) {

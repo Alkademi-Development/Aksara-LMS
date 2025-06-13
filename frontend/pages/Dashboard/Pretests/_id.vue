@@ -14,16 +14,16 @@
                                 <div class="col">
                                     <b-spinner variant="primary" label="Spinning"></b-spinner>
                                     <br>
-                                    Loading 
+                                    Loading
                                 </div>
                             </b-card-body>
                         </b-card>
                     </div>
                 </div>
-                
+
                 <div class="row" v-else>
                     <div class="col" v-if="isVerified">
-                        <b-alert 
+                        <b-alert
                             :show="onEvent.alertCounter"
                             :variant="onEvent.variant"
                             @dismissed="onEvent.alertCounter=0"
@@ -143,7 +143,7 @@
                         </b-card>
                     </div>
                 </div>
-                
+
                 <Footer />
 
             </div>
@@ -232,7 +232,7 @@ export default {
                         this.isVerified = false
                         console.error("Failed to fetch question pretest: ", pretestState.message);
                         this.setEvent('Gagal mengambil pertanyaan: ' + pretestState.message, false);
-                        
+
                         this.isBusy= false
                     } else {
                         this.fetchPrograms()
@@ -256,11 +256,11 @@ export default {
             if (this.courseState.status) {
                 this.moduleDetail = this.courseState.modules
                 this.forms = this.moduleDetail.forms
-                
+
                 if (this.moduleDetail.metronomId != '' && this.moduleDetail.metronomId != null) this.fetchMetronom()
                 else this.isBusy = false
                 // console.log(this.courseState.modules, "modules")
-                
+
             } else {
                 console.error(this.courseState.message)
             }
@@ -274,7 +274,7 @@ export default {
 
             if (!pretestsState.status) {
                 console.error("Failed to Fetch Pretest Metronom");
-                
+
                 this.isBusy = false
             } else {
                 this.metronomData = pretestsState.data
@@ -330,7 +330,7 @@ export default {
                         console.error("Failed to store answer pretest: ", pretestState.message);
 
                         this.setEvent(pretestState.message == 'Email belum diverifikasi' ? 'Email kamu belum diverifikasi. Verifikasi email untuk melanjutkan proses pretest.' : pretestState.message, false)
-                        
+
                         this.isBusy = false
                     } else {
                         this.isBusy = false
@@ -345,7 +345,7 @@ export default {
             }
         },
         async fetchPrograms(){
-            
+
             await this.$store.dispatch('Programs/getProgramById', this.programId)
             .then(() => {
                 var statePrograms = this.$store.state.Programs
@@ -412,7 +412,7 @@ export default {
                 // console.log(this.moduleDetail, "QUIZOBJECt")
                 this.quizClick()
             }
-            
+
         },
         async quizClick() {
             this.isLoadQuiz = true
@@ -434,7 +434,7 @@ export default {
         },
         async goToEditor(){
             this.isOpeningEditor = true
-            
+
             const appToken = `&appToken=${localStorage.getItem('access_token')}`
             const redirectLms = "&redirectTo=" + window.location.href
 
@@ -450,7 +450,7 @@ export default {
                 window.open(url, '_blank')
                 this.isOpeningEditor =  false
             }, 500);
-           
+
         },
         setEvent (message, status) {
             this.onEvent.message = message

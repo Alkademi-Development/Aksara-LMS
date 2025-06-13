@@ -290,6 +290,28 @@ export default {
     },
 
     actions: {
+      // Authorizer
+        async authorize({ commit }) {
+            try {
+                const response = await apiAuthorize()
+
+                const resPayload = {
+                    message: response.data.message,
+                    status: response.data.status,
+                    data: response.data.data
+                }
+
+                commit('SET_RESPONSE', resPayload)
+            } catch (error) {
+                const resPayload = {
+                    message: error,
+                    status: false,
+                    data: null
+                }
+
+                commit('SET_RESPONSE', resPayload)
+            }
+        },
         async locationList ({commit}) {
             try {
                 const response = await apiLocationList()

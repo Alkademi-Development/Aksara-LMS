@@ -30,7 +30,7 @@ export default function ({ route, store, redirect, next }) {
                             return window.open(url, "_self")
                         }
 
-        
+
                         const url = `${baseUrl}/auth?${redirect}&lmsId=${lmsId.data.data}${codeToken}${generatedToken}${backTo}`;
                         return window.open(url, "_self")
                     }, 400)
