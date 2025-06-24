@@ -27,7 +27,17 @@ const apiGetListStudio = (page, kind, keyword) => {
 
     return studioClients.get(BASE_URL_SERVICES + url + params)
 }
+const apiGetDetailProject = (metronomId) =>
+  studioClients.get(`${BASE_URL_SERVICES}v1/metronom/ce/${metronomId}/answer`)
 
+const apiSaveCode = (metronomId, payload) =>
+  studioClients.post(`${BASE_URL_SERVICES}v1/metronom/ce/${metronomId}/save`, payload)
+
+const apiRunCode = (metronomId, payload) =>
+  studioClients.post(`${BASE_URL_SERVICES}v1/metronom/ce/${metronomId}/run`, payload)
+
+const apiSubmitCode = (metronomId, stdin = '') =>
+  studioClients.post(`${BASE_URL_SERVICES}v1/metronom/ce/${metronomId}/submit`, stdin)
 
 export {
     apiGetExt,
@@ -37,4 +47,8 @@ export {
     apiCreateStudio,
     apiEditStudio,
     apiDeleteStudio,
+    apiGetDetailProject,
+    apiSaveCode,
+    apiRunCode,
+    apiSubmitCode
 }

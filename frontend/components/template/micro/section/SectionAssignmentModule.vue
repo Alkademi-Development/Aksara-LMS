@@ -218,7 +218,7 @@ export default {
               this.isLoading = false;
           }
       } else {
-          params = { 
+          params = {
               classId: this.classroomDetail?.id,
               topicId: this.assignmentInTopic?.id,
               userId: this.user?.id,
@@ -389,7 +389,7 @@ export default {
       this.isAssigning = true;
 
       this.onAlert = { isShow: false, variant: "danger", message: "" };
-      
+
       const params = {
           classId: this.classroomDetail?.id,
           topicId: this.assignmentInTopic?.id,

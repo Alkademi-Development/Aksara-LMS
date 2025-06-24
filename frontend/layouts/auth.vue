@@ -13,9 +13,6 @@
   </div>
 </template>
 
-<style>
-</style>
-
 <script>
 import { mapState } from "vuex";
 import appToken from "~/api/app-token";
@@ -282,7 +279,7 @@ export default {
                     await appToken?.generatedToken()
                 }
             }
-        },
+    },
 	},
 	watch: {},
 };

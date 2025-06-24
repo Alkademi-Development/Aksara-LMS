@@ -7,11 +7,26 @@ import {
     apiEditStudio,
     apiDeleteStudio,
 } from '@/api/studio.api';
-import { data } from 'jquery';
+import dayjs from 'dayjs'
+import { IFRAME_LOG } from '@/commons/constants/iframe-log'
+
+function getBlobURL(content, type) {
+  const blob = new Blob([content], { type })
+  return URL.createObjectURL(blob)
+}
 
 export default {
     namespaced: true,
     state: {
+        theme: 'light',
+        activeScreen: 'editor',
+        viewer: {
+          html: '',
+          css: '',
+          js: ''
+        },
+        isModuleOpen: false,
+        consoleOutputs: [],
         studio: [],
         message: '',
         status: false,
@@ -24,6 +39,28 @@ export default {
     },
 
     mutations: {
+        SET_ACTIVE_SCREEN(state, screen) {
+          state.activeScreen = screen
+        },
+        SET_VIEWER(state, payload) {
+          state.viewer = payload
+        },
+        SET_MODULE_OPEN(state, val) {
+          state.isModuleOpen = val
+        },
+        ADD_CONSOLE_OUTPUT(state, { type, messages }) {
+          const formattedMessages = messages.map(message =>
+            typeof message === 'object' ? JSON.stringify(message, null, 2) : message
+          )
+          state.consoleOutputs.push({
+            type,
+            time: dayjs().format('MMM DD, YY HH:mm:ss'),
+            message: formattedMessages.join(', ')
+          })
+        },
+        CLEAR_CONSOLE_OUTPUT(state) {
+          state.consoleOutputs = []
+        },
         SET_RESPONSE(state, {message, status, data}){
             state.message = message;
             state.status = status;
@@ -35,6 +72,9 @@ export default {
         SET_STUDIO(state, studio){
             state.studio = studio
         },
+        SET_THEME(state, val) {
+          state.theme = val
+        }
     },
 
     actions: {
@@ -203,5 +243,72 @@ export default {
                 console.log('Failed get studio: ', error)
             }
         },
+        setActiveScreen({ commit }, screen) {
+          commit('SET_ACTIVE_SCREEN', screen)
+        },
+        setViewer({ commit }, payload) {
+          commit('SET_VIEWER', payload)
+        },
+        setModuleOpen({ commit }, val) {
+          commit('SET_MODULE_OPEN', val)
+        },
+        addConsoleOutput({ commit }, payload) {
+          commit('ADD_CONSOLE_OUTPUT', payload)
+        },
+        removeConsoleOutput({ commit }) {
+          commit('CLEAR_CONSOLE_OUTPUT')
+        },
+        disableSpecialKeys() {
+          const exceptKeys = ['a', 'A', 'r', 'R', 'z', 'Z', 'y', 'Y', 's', 'S']
+          const onClickKey = evt => evt.preventDefault()
+
+          document.addEventListener('keydown', evt => {
+            if (((evt.ctrlKey || evt.metaKey) && !exceptKeys.includes(evt.key)) || evt.key === 'F12') {
+              onClickKey(evt)
+            }
+          })
+        },
+        onCtrlS(_, fn) {
+          const keys = ['s', 'S']
+          const handler = evt => {
+            if ((evt.ctrlKey || evt.metaKey) && keys.includes(evt.key)) {
+              evt.preventDefault()
+              fn()
+            }
+          }
+          document.addEventListener('keydown', handler)
+        },
+        setStudioTheme({ commit }, val) {
+          commit('SET_THEME', val)
+        }
+    },
+    getters: {
+      theme: state => state.theme,
+      activeScreen: state => state.activeScreen,
+      viewer: state => state.viewer,
+      isModuleOpen: state => state.isModuleOpen,
+      consoleOutputs: state => state.consoleOutputs,
+      getViewerURL: state => {
+        const cssURL = getBlobURL(state.viewer.css, 'text/css')
+        const jsURL = getBlobURL(state.viewer.js, 'text/javascript')
+
+        let html = state.viewer.html
+
+        if (cssURL) {
+          const htmlArr = html.split('</head>')
+          const jsConsole = getBlobURL(IFRAME_LOG, 'text/javascript')
+          htmlArr[0] += `<link rel="stylesheet" type="text/css" href="${cssURL}" />
+                         <script src="${jsConsole}" type="text/javascript"></script>`
+          html = htmlArr.join('</head>')
+        }
+
+        if (jsURL) {
+          const htmlArr = html.split('</body>')
+          htmlArr[0] += `<script src="${jsURL}" type="text/javascript"></script>`
+          html = htmlArr.join('</body>')
+        }
+
+        return getBlobURL(html, 'text/html')
+      }
     },
 }

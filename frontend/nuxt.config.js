@@ -2,7 +2,7 @@ export default {
 
   server: {
     port: 4000, // default: 3000
-    host: '0.0.0.0', // default: localhost  
+    host: '0.0.0.0', // default: localhost
   },
 
   env: {
@@ -89,6 +89,7 @@ export default {
     { src: '~/plugins/nuxt-quill-plugin.js', mode: 'client' },
     '~/plugins/axios',
     '~/plugins/vue-select',
+    '~/plugins/vue-split-panel',
 
   ],
 
