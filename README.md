@@ -70,8 +70,6 @@ bun run dev
 
 > Bersama kita bangun sistem pembelajaran masa depan yang terbuka dan inklusif.
 
----
-
 ## Dukungan
 
 Untuk kolaborasi, pertanyaan, atau saran:  
