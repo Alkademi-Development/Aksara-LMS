@@ -1,4 +1,9 @@
-# 🌐 Aksara LMS - Open Source Learning Management System
+# Aksara LMS - Open Source Learning Management System
+
+
+<img src="https://drive.alkademi.id/v1/upload/themes/static/assets/img/logos/alkademi-dark.png" width="200">
+
+----
 
 **Aksara LMS** adalah proyek open-source Learning Management System (LMS) yang dibangun untuk mendukung pembelajaran digital di Indonesia. Dikembangkan dari Bandung untuk seluruh Indonesia, LMS Aksara bertujuan menjadi platform pembelajaran daring yang inklusif, fleksibel, dan dapat dikembangkan bersama komunitas.
 
@@ -9,47 +14,63 @@ LMS Aksara dibangun dengan keyakinan bahwa mengajarkan ilmu dimulai dari huruf�
 > 🚧 **Status: Dalam Tahap Pengembangan**  
 > Kontribusi terbuka! Kami mengundang developer, desainer, pendidik, dan komunitas open source untuk bersama-sama membangun Aksara LMS menjadi lebih baik.
 
----
+----
 
-## 🧩 Arsitektur MVP
+## Menjalankan Aksara LMS
 
-Berikut adalah modul utama dari MVP (Minimum Viable Product) Aksara LMS:
+Pertama-tama lakukan git clone terlebih dahulu untuk projek Aksara LMS nya.
 
-- **Auth** – Sistem otentikasi pengguna
-- **Course** – Manajemen dan tampilan konten pembelajaran
-- **Assessment** – Modul penilaian pembelajaran
-- **Quiz** – Kuis interaktif untuk evaluasi
-- **Coding Studio** – Editor kode daring untuk latihan pemrograman
-- **AI Review** – Umpan balik otomatis berbasis AI
-- **Users** – Manajemen pengguna dan peran
 
-## 📌 Visi
+```
+git clone https://github.com/Alkademi-Development/aksara-lms.git
+cd aksara-lms
+```
 
-Kami percaya bahwa teknologi pendidikan harus dapat diakses dan dikembangkan secara terbuka. Dengan Aksara LMS, kami ingin menyediakan platform yang:
+### Untuk bagian Frontend
 
-- Bisa digunakan secara gratis dan dikustomisasi
-- Terbuka terhadap kontribusi komunitas
-- Mendukung AI untuk meningkatkan kualitas pembelajaran
+Pastikan telah menginstall semua dependencies yang dibutuhkan. Dan untuk versi NodeJS yang digunakan nya adalah versi **16.0**.
 
----
+#### Setup
 
-## 🤝 Kontribusi
+```
+# npm
+npm install
 
-Kami membuka kontribusi untuk:
-- Pengembangan fitur baru
-- Perbaikan bug
-- Penambahan dokumentasi
-- Pengujian dan umpan balik
+# pnpm
+pnpm install
 
----
+# yarn
+yarn install
 
-## 🇮🇩 Aksara LMS - Dari Bandung Untuk Indonesia
+# bun
+bun install
+```
+
+#### Development Server
+
+Jalankan proses pengembangan server nya berdasarkan dari IP Adress pada komputer anda dan port nya 4000:
+
+```
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+### Untuk bagian Backend
+
+## Aksara LMS - Dari Bandung Untuk Indonesia
 
 > Bersama kita bangun sistem pembelajaran masa depan yang terbuka dan inklusif.
 
----
-
-## 📬 Kontak
+## Dukungan
 
 Untuk kolaborasi, pertanyaan, atau saran:  
 📧 [hello@alkademi.id]  

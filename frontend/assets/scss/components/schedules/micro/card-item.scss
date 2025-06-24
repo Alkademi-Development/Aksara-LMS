@@ -1,0 +1,64 @@
+@import "@/assets/scss/components/schedules/utilities/colors";
+
+.card-event-item {
+
+    margin-bottom: 24px;
+
+    &:last-child { margin-bottom: 0; }
+
+    i.circle-class { color: $green !important; }
+    i.circle-meet { color: $blue !important; }
+    i.circle-assignment { color: $peach !important; }
+    i.circle-announcement { color: $purple !important; }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .event-date {
+        font-weight: 600;
+        border-right: 1px;
+        border-right-style: solid;
+        border-right-color: #000000;
+        padding-right: 12px;
+    }
+
+    .event-action {
+        display: flex;
+
+        button {
+            display: none;
+        }
+    }
+
+    .event-content {
+        width: 100%;
+        
+        h5 {
+            font-size: 14px;
+        }
+        span {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .content-bottom {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            i {
+                color: rgba(3, 5, 61, 0.65);
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        .event-action {
+            button {
+                display: block;
+            }
+        }
+    }
+}

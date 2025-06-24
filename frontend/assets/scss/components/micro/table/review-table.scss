@@ -1,0 +1,85 @@
+@import '../../../utilities/colors';
+
+#review-table {
+
+    .table .thead-light th {
+        background-color: #F9F9F9;
+        color: rgba(0, 0, 0, 0.65);
+        letter-spacing: normal;
+        text-transform: none;
+    }
+
+    .table thead th, .table td {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+
+    .table tr, .table th {
+        border: none !important;
+    }
+
+    .table tr {
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .b-table-busy-slot {
+        strong {
+            line-height: 100%;
+        }
+    }
+
+    .name-link {
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: $primary !important;
+
+        &:hover {
+            color: $primary !important;
+        }
+    }
+
+    .btn-score, span {
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+
+        i {
+            margin-left: 2px;
+        }
+    }
+
+    .page-item.active span {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .page-item.active .page-link {
+        border-color: $primary;
+        background-color: $primary;
+    }
+
+    .btn-accessible{
+        cursor: pointer;
+        transition: .3s !important;
+
+        &:hover{
+            transform: translateY(-2px);
+        }
+    }
+
+    .btn-no-accessible{
+        cursor: auto;
+        transition: .3s !important;
+
+        &:hover{
+            transform: translateY(0px);
+        }
+    }
+
+    .btn-assignment--disable{
+        cursor: default;
+    }
+}

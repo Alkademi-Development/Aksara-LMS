@@ -1,0 +1,138 @@
+@import "../../utilities/colors";
+
+#review-assignments {
+
+    .card-review {
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.active {
+            border: 2px solid $primary !important;
+        }
+    }
+
+    .box-title {
+        margin-bottom: 34px;
+
+        .title {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 130%;
+            color: #000000;
+        }
+        .badge-status {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 6px;
+            gap: 6px;
+
+            background: #EBEBF0;
+            border-radius: 6px;
+
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            text-transform: capitalize;
+            line-height: 100%;
+
+            color: #000000;
+            transition: ease-in-out 0.25s;
+
+            &:hover {
+                transform: translate(0, -2px);
+                transition: ease-in-out 0.25s;
+            }
+
+        }
+    }
+
+    .item-review {
+        .box-title {
+            transform: var($primary);
+
+            .title {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 100%;
+
+                color: #000000;
+            }
+        }
+
+        .box-assignment-kind {
+            span {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 100%;
+                color: #000000;
+
+                &.title {
+                    text-transform: capitalize;
+                    color: $success;
+                }
+
+                &.form { color: $success; }
+
+                &.studio { color: $warning; }
+
+                &.link { color: $primary; }
+            }
+        }
+
+        .divider {
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+        }
+
+        .box-information {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            color: #000000;
+
+            span, strong {
+                font-size: 14px;
+                line-height: 100%;
+                white-space: nowrap;
+            }
+
+            .count-scored {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+
+                i {
+                    color: #2FCC71;
+                }
+
+                span {
+                    font-weight: 500;
+                }
+
+                strong {
+                    font-weight: bolder;
+                }
+
+            }
+
+            .calendar {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                
+                span {
+                    color: #FF6464;
+                }
+
+            }
+        }
+    }
+
+}

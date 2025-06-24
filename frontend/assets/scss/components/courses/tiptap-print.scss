@@ -1,0 +1,41 @@
+@media print{
+  .header-editor,
+  .code-block .code-block-header,
+  .wrapper-table .drag-handle,
+  .embedlink-wrapper iframe,
+  .file-content .file-wrapper .action-wrapper,
+  .file-content .image-item--lazy,
+  .embedlink .input-embedlink{
+    display: none !important;
+  }
+
+  .embedlink-wrapper .link-item{
+    display: inline !important;
+    color: blue !important;
+  }
+
+  .file-content .image-item--default{
+    display: inline-block !important;
+  }
+
+  .tiptap .embedlink-wrapper{
+    height: max-content !important;
+    aspect-ratio: auto !important;
+    justify-content: start;
+  }
+
+  .tiptap > *:first-child{
+    margin-top: -30px !important;
+  }
+
+  .code-block pre code {
+    background-color: rgb(22,22,22) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+  }
+}

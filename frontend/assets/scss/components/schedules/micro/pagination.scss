@@ -1,0 +1,18 @@
+.btn-paginate {
+    font-size: 1rem;
+    display: flex;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%!important;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background: #EBEBF0;
+
+    &.disabled {
+        transform: none;
+        box-shadow: none;
+    }
+}

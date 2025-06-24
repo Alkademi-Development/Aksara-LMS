@@ -1,0 +1,111 @@
+.wrapper-filter{
+  position: relative;
+
+  &.w-default{
+    width: 230px;
+  }
+
+  &.w-max-content{
+    width: max-content;
+  }
+
+  .filter-action{
+    border: 1px solid var(--bs-primary);
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &.filter-action--checkbox{
+      padding: 12px;
+      line-height: 1;
+      border: 1px solid var(--bs-light);
+      cursor: pointer;
+
+      span{
+        color: var(--bs-light);
+      }
+
+      &.action-active{
+        border: 1px solid var(--bs-primary);
+
+        span{
+          color: var(--bs-primary);
+        }
+      }
+    }
+
+    .filter-action--icon{
+      background-color: #fff;
+      line-height: 0px;
+      padding: 12px;
+    }
+
+    input{
+      font-size: 12px;
+      padding: 12px;
+      border: none;
+      outline: none;
+      color: rgba(0, 0, 0, 0.5);
+      line-height: 15px;
+      font-weight: 500;
+      width: 100%;
+
+      &::placeholder{
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  .filter-options{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 0px 0px 6px 6px;
+    z-index: 1000;
+    max-height: 190px;
+    overflow-y: auto;
+
+    .filter-options--item{
+      padding: 10px 12px;
+      cursor: pointer;
+
+      span{
+        font-size: 12px;
+      }
+      
+      &:hover{
+        background-color: var(--bs-primary);
+
+        span{
+          color: white;
+        }
+      }
+    }
+
+    .filter-options--empty{
+      cursor: default;
+
+      span{
+        color: var(--bs-light);
+      }
+
+      &:hover{
+        background-color: white;
+
+        span{
+          color: var(--bs-light);
+        }
+      }
+    }
+
+    .filter-options--loading{
+      padding: 10px 12px;
+
+      span{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

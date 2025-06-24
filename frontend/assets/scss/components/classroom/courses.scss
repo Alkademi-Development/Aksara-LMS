@@ -1,0 +1,118 @@
+@import '/assets/scss/components/micro/buttons.scss';
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.header  {
+    cursor: pointer;
+
+    .title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        min-height: 26px;
+    }
+
+    i {
+        font-size: 20px;
+    }
+
+    .action-container {
+
+        .action {
+            display: none;
+            // display: flex;
+            line-height: 16px;
+            padding: 4px;
+            margin-right: 8px;
+            cursor: pointer;
+            
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            
+            i {
+                font-size: 14px;
+            }
+        }
+        .modul {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+
+    &:hover {
+
+        .action {
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            transition: ease-in-out 0.5s !important;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+        }
+    }
+}
+
+.title-container {
+    min-height: 27px;
+
+    .action-container {
+
+        .action {
+            display: none;
+            // display: block;
+            line-height: 16px;
+            padding: 4px;
+            margin-right: 8px;
+            cursor: pointer;
+
+            i {
+                font-size: 14px;
+            }
+        }
+
+    }
+
+    &:hover {
+
+        .action {
+            z-index: 99;
+            display: block;
+            transition: ease-in-out 0.5s !important;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+        }
+    }
+}
+
+.content {
+
+    .content-body {
+        padding: 12px;
+    }
+    
+    .title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    
+    .description ::v-deep p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 0;
+    }
+}
+

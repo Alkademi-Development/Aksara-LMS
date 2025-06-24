@@ -1,0 +1,20 @@
+@import '../../utilities/colors';
+
+.modal-invite-users {
+    .modal-title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #000000;
+
+        margin-bottom: 34px;
+    }
+
+    .selected-group {        
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+    
+}

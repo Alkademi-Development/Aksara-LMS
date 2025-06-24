@@ -1,0 +1,42 @@
+.content-module{
+  margin-left: 0px;
+  width: 100%;
+
+  @media (min-width: 768px){
+    width: calc(100% - 315px) !important;
+    margin-left: 315px;
+  }
+}
+
+.wrapper-header{
+  z-index: 99;
+  width: 100vw;
+  transition: all .3s;
+  
+  @media (max-width: 768px){
+    left: 0;
+  }
+
+  @media (min-width: 768px){
+    width: calc(100vw - 335px);
+  }
+
+  @media (min-width: 1200px){
+    width: calc(100vw - (335px + 250px));
+  }
+}
+
+.btn-start-study{
+  padding: 12px;
+  flex-shrink: 0;
+
+  i{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  p{
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
