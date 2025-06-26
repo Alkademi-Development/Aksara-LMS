@@ -1,15 +1,17 @@
 <template>
-  <div class="metronom-layout">
+  <div class="studio-layout d-flex">
     <!-- Sidebar -->
     <Sidebar />
 
     <!-- Main Content -->
-    <div class="flex-grow-1">
+    <div class="studio-main flex-grow-1">
       <!-- Navbar -->
       <Navbar />
 
       <!-- Slot for Page Content -->
-      <Nuxt />
+      <div class="studio-content">
+        <Nuxt />
+      </div>
     </div>
   </div>
 </template>
@@ -17,8 +19,8 @@
 <script>
 import { mapState } from "vuex";
 import appToken from "~/api/app-token";
-import Sidebar from "~/components/template/metronom/Sidebar.vue";
-import Navbar from "~/components/template/metronom/Navbar.vue";
+import Sidebar from "~/components/template/studio/Sidebar.vue";
+import Navbar from "~/components/template/studio/Navbar.vue";
 
 export default {
   components: {
@@ -185,13 +187,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.metronom-layout {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
+.studio-layout {
+  // display: flex;
+  // flex-direction: row;
+  // align-items: start;
 
   &::v-deep {
-    @import '~/assets/scss/metronom.scss';
+    @import '~/assets/scss/studio.scss';
  }
 }
 </style>
