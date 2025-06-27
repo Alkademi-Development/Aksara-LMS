@@ -29,7 +29,6 @@ export default {
   mixins: [useThemeMixin],
   computed: {
     ...mapState({
-      project: (state) => state.Compiler.project?.data,
       user: (state) => state.Auth.user,
       showTimer: (state) => state.Alkamedia.showTimer,
       studioTheme: (state) => state.Studio.theme,

@@ -89,7 +89,7 @@ export default {
   display: inline-block;
 
   .select-dropdown-toggle {
-    padding: 0.5rem 0.6rem;
+    padding: 0.6rem;
     min-width: 120px;
     background: #fafafa;
     border: 1px solid #e5e7eb;
