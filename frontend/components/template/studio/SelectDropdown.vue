@@ -1,7 +1,7 @@
 <template>
   <div class="select-dropdown" ref="dropdown">
     <button
-      class="select-dropdown-toggle btn d-flex align-items-center"
+      class="select-dropdown-toggle btn d-flex align-items-center justify-content-between w-100"
       @click="toggleDropdown"
       type="button"
     >

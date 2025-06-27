@@ -4,9 +4,9 @@
 
 button {
   background-color: transparent;
-  appearance: none;
-  border: none;
-  outline: none;
+  // appearance: none;
+  // border: none;
+  // outline: none;
   transition: all 0.3s ease-in;
 }
 
@@ -18,6 +18,13 @@ ul li {
 
 h1,h2,h3,h4,h5,h6 {
   font-weight: bold;
+}
+
+nav button {
+  appearance: none;
+  background: transparent;
+  outline: none;
+  border: none;
 }
 
 p,
@@ -52,6 +59,9 @@ p,
 }
 .resize-handler.horizontal button {
   width: 50px;
+  border: none;
+  appearance: none;
+  outline: none;
 }
 
 .studio-layout {
@@ -93,6 +103,7 @@ p,
 .studio-main { display: flex; flex-direction: column; width: 100%; }
 
 .studio-compiler, .studio-web {
+  position: relative;
   display: flex;
   height: calc(100vh - 56px); // Sesuaikan dengan tinggi navbar
   background: #f9fafb;
@@ -104,6 +115,39 @@ p,
   border-right: 1px solid #e5e7eb;
   background: white;
   .module-iframe, .web-iframe { width: 100%; height: 100%; border: none; }
+}
+
+.studio-module-mobile {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 999;
+  padding: 1.5rem;
+  .module-iframe, .web-iframe { width: 100%; height: 100%; border: none; padding-bottom: 2rem; }
+
+  .studio-module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      appearance: none;
+      border: none;
+      outline: none;
+      font-size: 1.5rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: var(--bs-primary);
+      }
+    }
+  }
+
+  &.active {
+
+  }
 }
 
 .studio-editor, .web-editor {
@@ -186,7 +230,7 @@ p,
         bottom: 0;
         width: 0;
         height: 3px;
-        background: var(--bs-primary, #2096C4);
+        background: var(--bs-primary);
         border-radius: 2px 2px 0 0;
         transform: translateX(-50%);
         transition: width 0.3s cubic-bezier(.4,0,.2,1);
@@ -205,7 +249,9 @@ p,
   }
 }
 
-.editor-body {
+.editor-input,
+.editor-output,
+.editor-result {
   max-height: 250px;
   // padding-right: 1rem;
   overflow-y: auto;

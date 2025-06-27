@@ -8,12 +8,12 @@
 
       <div class="d-flex align-items-center gap-4">
         <!-- Theme Toggle -->
-        <button
+        <!-- <button
           class="text-primary text-lg rounded-lg p-2"
           @click="onChangeTheme"
         >
           <i :class="studioTheme === 'light' ? 'ri-sun-fill' : 'ri-moon-fill'"></i>
-        </button>
+        </button> -->
         <img src="https://drive.alkademi.id/v1/upload/profile/1696868895427.jpeg" width="40" height="40" class="img-fluid rounded-pill" alt="Profil User">
       </div>
 

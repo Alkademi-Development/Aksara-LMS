@@ -9,6 +9,26 @@
         allowfullscreen
       ></iframe>
     </div>
+    <!-- Panel Modul for Mobile -->
+    <transition name="fade-slide">
+      <div
+        v-if="isModuleVisible"
+        class="studio-module-mobile"
+      >
+        <div class="studio-module-header mb-2">
+          <h4>Slicing Landing Page</h4>
+          <button type="button" @click="isModuleVisible = false;">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <iframe
+          class="module-iframe"
+          :src="moduleUrl"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </transition>
 
     <!-- Editor & Panel Control -->
     <div class="studio-editor flex-grow-1 d-flex flex-column">
@@ -43,7 +63,7 @@
             <i class="ri-code-s-slash-line mr-2"></i>
             <h4 class="editor-language font-weight-bold">Studio</h4>
           </div>
-          <ul class="editor-header-display d-flex align-items-center gap-2 m-0 d-none d-md-block">
+          <ul class="editor-header-display d-md-flex align-items-center gap-2 m-0 d-none">
             <li>
               <button type="button">
                 <i class="ri-smartphone-line"></i>
@@ -51,7 +71,7 @@
             </li>
             <li>
               <button type="button">
-                <i class="ri-tablet-line" style="transform: rotate(45deg);"></i>
+                <i class="ri-tablet-line"></i>
               </button>
             </li>
             <li>
@@ -120,20 +140,53 @@
             </ul>
           </div>
           <!-- Control Buttons -->
-          <div class="editor-panel-actions mt-2 d-flex align-items-center">
-            <button class="btn btn-disabled mr-2" @click="runCode">
-              <i class="ri-save-line"></i>
-            </button>
-            <button class="btn btn-primary mr-2">
-              <i class="ri-play-line"></i>
-            </button>
-            <button class="btn btn-disabled" @click="submitCode">
-              Submit
+          <div class="editor-panel-actions mt-2 d-flex align-items-center justify-content-between justify-content-md-end w-100">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-disabled mr-2" @click="runCode">
+                <i class="ri-save-line"></i>
+              </button>
+              <button class="btn btn-primary mr-2">
+                <i class="ri-play-line"></i>
+              </button>
+              <button class="btn btn-disabled" @click="submitCode">
+                Submit
+              </button>
+            </div>
+            <button type="button" class="btn btn-outline-primary px-3 d-block d-md-none" @click="isModuleVisible = true">
+              Modul
             </button>
           </div>
         </div>
         <!-- Panel Body -->
         <div class="editor-body mt-3">
+          <!-- Panel Control -->
+          <div class="editor-panel-control d-block d-md-none align-items-center gap-2 mb-3">
+            <!-- Panel Dropdown Select Language -->
+            <SelectDropdown
+              v-model="selectedLanguage"
+              :options="[
+                { label: 'Golang', value: 'golang' },
+                { label: 'Javascript', value: 'javascript' },
+                { label: 'PHP', value: 'php' },
+                { label: 'Python', value: 'python' }
+              ]"
+              label="Language"
+              class="w-100"
+            />
+            <!-- Panel Tab -->
+            <ul class="editor-panel-nav mb-2">
+              <li class="editor-panel-nav-item" v-for="tab in tabs" :key="tab">
+                <button
+                  type="button"
+                  class="editor-panel-nav-link"
+                  :class="{'active': activeTab === tab?.toLowerCase()}"
+                  @click="activeTab = tab.toLowerCase()"
+                >
+                  {{ tab }}
+                </button>
+              </li>
+            </ul>
+          </div>
           <!-- Input -->
           <div class="editor-input" v-if="activeTab === 'input'">
             <b-form-group
@@ -220,7 +273,7 @@ export default {
   data() {
     return {
       isLoading: true,
-      isModuleOpen: false,
+      isModuleVisible: false,
       activeTab: 'input',
       project: {
         name: 'Proyek Dummy',
@@ -277,8 +330,9 @@ export default {
 
     },
     updatePanelControl() {
-      const isMobile = window.innerWidth <= 768;
-      this.panelControl.defaultHeight = isMobile ? 100 : 90;
+      const isMobile = window.innerWidth <= 576;
+      const isTablet = window.innerWidth <= 768;
+      this.panelControl.defaultHeight = isTablet ? isMobile ? 95 : 90 : 100;
       this.panelControl.collapsedHeight = isMobile ? 35 : 20;
     },
     togglePanelSize() {
@@ -298,4 +352,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fade-slide-enter {
+  transform: translateX(100%); /* Muncul dari kanan */
+  opacity: 0;
+}
+
+.fade-slide-leave-to {
+  transform: translateX(100%); /* Menghilang ke kanan */
+  opacity: 0;
+}
 </style>
