@@ -7,6 +7,7 @@ const TEMPLATE_COMPILER = `// Aturan:
 // 6. Output merupakan return dari fungsi 'run'
 // 7. Tidak diperbolehkan menambahkan 'input' dan 'output' selain dari parameter dan return pada fungsi 'run'
 // 8. Tidak menaati keseluruhan aturan dapat menyebabkan program gagal dijalankan
+
 function run(x, y) {
     return "";
 }

@@ -205,11 +205,14 @@ p,
 .editor-header {
   background: white;
   border-bottom: 1px solid #e5e7eb;
-  font-size: 1rem;
   font-weight: 600;
   display: flex;
   align-items: center;
   padding-block: 1rem;
+
+  i {
+    font-size: 1.5rem;
+  }
 
   .editor-header-display button {
     padding: 0.5rem;

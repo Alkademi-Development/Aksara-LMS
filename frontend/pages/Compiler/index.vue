@@ -36,7 +36,7 @@
         <!-- Header Editor -->
         <div class="editor-header px-3 border-bottom">
           <div class="d-flex align-items-center gap-2">
-            <i class="ri-code-s-slash-line mr-2"></i>
+            <i class="ri-code-box-line mr-2"></i>
             <h4 class="editor-language font-weight-bold">{{ selectedLanguage?.toUpperCase() }}</h4>
           </div>
         </div>
@@ -66,7 +66,7 @@
       <div class="editor-web flex-grow-1 d-flex" v-else-if="activeScreen === 'web'">
         <!-- KIRI: HTML (panjang penuh) -->
         <div class="editor-pane html-pane">
-          <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i>
+          <div class="pane-header"><i class="ri-code-box-line mr-2"></i>
             {{ activeCode.toUpperCase() }}
           </div>
           <VueMonacoEditor
@@ -107,7 +107,7 @@
         </div>
         <div class="right-panes d-none d-md-flex">
           <div class="editor-pane css-pane">
-            <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> CSS</div>
+            <div class="pane-header"><i class="ri-code-box-line mr-2"></i> CSS</div>
             <VueMonacoEditor
               v-model="code.css"
               language="css"
@@ -120,7 +120,7 @@
             />
           </div>
           <div class="editor-pane js-pane">
-            <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> JavaScript</div>
+            <div class="pane-header"><i class="ri-code-box-line mr-2"></i> JavaScript</div>
             <VueMonacoEditor
               v-model="code.javascript"
               language="javascript"
@@ -138,7 +138,7 @@
         <!-- Header Editor -->
         <div class="editor-header d-flex align-items-center justify-content-between px-3 border-bottom">
           <div class="d-flex align-items-center gap-2">
-            <i class="ri-code-s-slash-line mr-2"></i>
+            <i class="ri-code-box-line mr-2"></i>
             <h4 class="editor-language font-weight-bold">Studio</h4>
           </div>
           <ul class="editor-header-display d-flex align-items-center gap-2 m-0">
