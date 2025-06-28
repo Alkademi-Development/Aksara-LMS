@@ -12,9 +12,9 @@
       <div
         v-show="isOpen"
         class="select-dropdown-menu shadow"
+        :class="[positionMenu]"
         @mousedown.prevent
       >
-        <div class="select-dropdown-title" v-if="label">{{ label }}</div>
         <ul class="select-dropdown-list mb-0">
           <li
             v-for="option in options"
@@ -39,11 +39,15 @@ export default {
     value: [String, Number],
     options: {
       type: Array,
-      required: true, // [{ label: "Golang", value: "golang" }, ...]
+      required: true,
     },
     label: {
       type: String,
       default: "",
+    },
+    positionMenu: {
+      type: String,
+      default: "bottom"
     },
   },
   data() {
@@ -89,7 +93,7 @@ export default {
   display: inline-block;
 
   .select-dropdown-toggle {
-    padding: 0.6rem;
+    padding: 0.6rem !important;
     min-width: 120px;
     background: #fafafa;
     border: 1px solid #e5e7eb;
@@ -109,7 +113,6 @@ export default {
   .select-dropdown-menu {
     position: absolute;
     left: 0;
-    top: 100%;
     min-width: 180px;
     background: #fff;
     z-index: 10;
@@ -119,6 +122,13 @@ export default {
     box-shadow: 0 8px 32px 0 rgba(60,72,88,.16);
     padding: 10px 0;
     animation: fadeIn .15s;
+
+    &.bottom {
+      top: 100%;
+    }
+    &.top {
+      bottom: 110%;
+    }
   }
 
   .select-dropdown-title {

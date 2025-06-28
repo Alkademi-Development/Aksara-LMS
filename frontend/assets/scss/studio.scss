@@ -105,7 +105,7 @@ p,
 .studio-compiler, .studio-web {
   position: relative;
   display: flex;
-  height: calc(100vh - 56px); // Sesuaikan dengan tinggi navbar
+  height: calc(100vh - 56px);
   background: #f9fafb;
 }
 
@@ -182,21 +182,45 @@ p,
   }
 }
 
-.editor-main, .editor-monaco { flex: 1 1 0%; min-height: 200px; }
+.code-pane:last-child { border-right: none; }
+.pane-header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.8rem;
+
+  button {
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: var(--bs-primary);
+      color: white;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h4 {
+      font-size: 1rem;
+    }
+  }
+}
 
 .editor-panel {
   position: relative;
   background-color: white;
   // padding-block: 0 1.5rem;
   padding-inline: 1rem;
-  min-height: 0px;
-  max-height: 400px;
   // overflow: hidden;
   transition: height 0.3s ease-in-out;
 }
 
 .editor-panel .resize-handler {
-  top: -27px;
+  top: -28px;
 }
 
 .editor-panel .editor-panel-actions button {

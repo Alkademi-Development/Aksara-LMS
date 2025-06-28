@@ -32,7 +32,7 @@
 
     <!-- Editor & Panel Control -->
     <div class="studio-editor flex-grow-1 d-flex flex-column">
-      <div class="editor-compiler flex-grow-1" v-if="activeScreen === 'compiler'">
+      <div class="editor-compiler flex-grow-1 d-flex flex-column" v-if="activeScreen === 'compiler'">
         <!-- Header Editor -->
         <div class="editor-header px-3 border-bottom">
           <div class="d-flex align-items-center gap-2">
@@ -41,19 +41,49 @@
           </div>
         </div>
         <!-- Monaco Editor -->
-        <div class="editor-main flex-grow-1">
+        <div
+          class="editor-main flex-grow-1"
+          :style="{
+            maxHeight: panelControl.currentState === 'default'
+              ? 550 + 'px'
+              : panelControl.currentState === 'collapsed'
+              ? 100 + '%'
+              : 400 + 'px'
+          }"
+        >
+          <VueMonacoEditor
+            v-model="code"
+            language="javascript"
+            theme="vs-light"
+            :options="{
+              fontSize: 14,
+              minimap: { enabled: false },
+            }"
+          />
         </div>
       </div>
-      <div class="editor-web flex-grow-1" v-else-if="activeScreen === 'web'">
-        <!-- Header Editor -->
-        <div class="editor-header px-3 border-bottom">
-          <div class="d-flex align-items-center gap-2">
-            <i class="ri-code-s-slash-line mr-2"></i>
-            <h4 class="editor-language font-weight-bold">HTML</h4>
-          </div>
-        </div>
+      <div class="editor-web flex-grow-1 d-flex flex-column" v-else-if="activeScreen === 'web'">
+        <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> HTML</div>
         <!-- Monaco Editor -->
-        <div class="editor-main flex-grow-1">
+        <div
+          class="editor-main flex-grow-1"
+          :style="{
+            maxHeight: panelControl.currentState === 'default'
+              ? 550 + 'px'
+              : panelControl.currentState === 'collapsed'
+              ? 100 + '%'
+              : 400 + 'px'
+          }"
+        >
+          <VueMonacoEditor
+            v-model="code"
+            language="html"
+            theme="vs-light"
+            :options="{
+              fontSize: 14,
+              minimap: { enabled: false },
+            }"
+          />
         </div>
       </div>
       <div class="editor-preview flex-grow-1" v-else>
@@ -111,22 +141,23 @@
             ></i>
           </button>
         </div>
-        <div class="editor-panel-wrapper d-flex align-items-start justify-content-between">
+        <div class="editor-panel-wrapper d-flex align-items-center justify-content-between">
           <!-- Panel Control -->
           <div class="editor-panel-control d-none d-md-flex align-items-center gap-2">
             <!-- Panel Dropdown Select Language -->
             <SelectDropdown
               v-model="selectedLanguage"
               :options="[
-                { label: 'Golang', value: 'golang' },
-                { label: 'Javascript', value: 'javascript' },
-                { label: 'PHP', value: 'php' },
-                { label: 'Python', value: 'python' }
+                // { label: 'Golang', value: 'golang' },
+                // { label: 'Javascript', value: 'javascript' },
+                // { label: 'PHP', value: 'php' },
+                // { label: 'Python', value: 'python' }
               ]"
-              label="Language"
+              :positionMenu="['default', 'collapsed'].includes(panelControl?.currentState) ? 'top' : 'bottom'"
+              label="Web"
             />
             <!-- Panel Tab -->
-            <ul class="editor-panel-nav mb-2">
+            <ul class="editor-panel-nav mb-2" v-if="activeScreen === 'compiler'">
               <li class="editor-panel-nav-item" v-for="tab in tabs" :key="tab">
                 <button
                   type="button"
@@ -158,7 +189,7 @@
           </div>
         </div>
         <!-- Panel Body -->
-        <div class="editor-body mt-3">
+        <div class="editor-body mt-3" v-if="activeScreen === 'compiler'">
           <!-- Panel Control -->
           <div class="editor-panel-control d-block d-md-none align-items-center gap-2 mb-3">
             <!-- Panel Dropdown Select Language -->
@@ -170,7 +201,7 @@
                 { label: 'PHP', value: 'php' },
                 { label: 'Python', value: 'python' }
               ]"
-              label="Language"
+              label="Web"
               class="w-100"
             />
             <!-- Panel Tab -->
@@ -249,6 +280,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { VueMonacoEditor } from '@guolao/vue-monaco-editor';
 import useAuthMixin from '~/mixins/useAuthMixin';
 import Sidebar from '~/components/template/studio/Sidebar.vue';
 import ModuleIFrame from '~/components/template/studio/ModuleIFrame.vue';
@@ -256,6 +288,7 @@ import SelectDropdown from '~/components/template/studio/SelectDropdown.vue';
 
 export default {
   components: {
+    VueMonacoEditor,
     Sidebar,
     ModuleIFrame,
     SelectDropdown,
@@ -275,6 +308,7 @@ export default {
       isLoading: true,
       isModuleVisible: false,
       activeTab: 'input',
+      code: 'const noop = () => {}',
       project: {
         name: 'Proyek Dummy',
       },
