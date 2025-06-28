@@ -86,6 +86,7 @@
               fontSize: 14,
               minimap: { enabled: false },
             }"
+            height="50%"
             v-else-if="activeCode === 'css'"
           />
           <VueMonacoEditor
@@ -96,12 +97,13 @@
               fontSize: 14,
               minimap: { enabled: false },
             }"
+            height="50%"
             v-else
           />
         </div>
         <!-- KANAN: CSS + JAVASCRIPT (atas-bawah) -->
-        <div class="right-panes d-none d-md-block">
-          <div class="editor-pane css-pane d-none d-md-block">
+        <div class="right-panes d-none d-md-flex">
+          <div class="editor-pane css-pane">
             <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> CSS</div>
             <VueMonacoEditor
               v-model="code"
@@ -209,7 +211,7 @@
         </div>
         <div class="editor-panel-wrapper position-relative d-flex align-items-center justify-content-between">
           <!-- Panel Tab -->
-          <ul class="editor-panel-nav mb-2 editor-panel-web" v-if="activeScreen === 'web'">
+          <ul class="editor-panel-nav mb-2 editor-panel-web d-flex d-md-none" v-if="activeScreen === 'web'">
             <li class="editor-panel-nav-item">
               <button
                 type="button"
