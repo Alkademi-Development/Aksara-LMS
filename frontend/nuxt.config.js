@@ -2,7 +2,7 @@ export default {
 
   server: {
     port: 4000, // default: 3000
-    host: '0.0.0.0', // default: localhost  
+    host: '0.0.0.0', // default: localhost
   },
 
   env: {
@@ -101,9 +101,7 @@ export default {
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // '@nuxtjs/pwa',
-  ],
+  buildModules: ['@nuxtjs/composition-api/module'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -127,48 +125,9 @@ export default {
     },
     postcss: null,
     publicPath: "/dashboard/_nuxt",
-    // plugins: [
-    //   new MonacoWebpackPlugin({
-    //     publicPath: "/dashboard",
-    //     languages: ['csharp', 'dart', 'go', 'java', 'javascript', 'kotlin', 'php', 'python', 'ruby', 'swift', 'typescript', 'vb']
-    //   })
-    // ],
 
     extend(config, ctx) {}
   },
-  // pwa: {
-  //   manifest: {
-  //     name: 'Alkamedia',
-  //     shortName: 'Alkamedia',
-  //     icons: [
-  //       {
-  //         src: '/icons/64.png',
-  //         sizes: '64x64',
-  //         type: 'image/png'
-  //       },
-  //       {
-  //         src: '/icons/144.png',
-  //         sizes: '144x144',
-  //         type: 'image/png'
-  //       },
-  //       {
-  //         src: '/icons/192.png',
-  //         sizes: '192x192',
-  //         type: 'image/png'
-  //       },
-  //       {
-  //         src: '/icons/512.png',
-  //         sizes: '512x512',
-  //         type: 'image/png'
-  //       }
-  //     ],
-  //     lang: 'en',
-  //     useWebmanifestExtension: false
-  //   },
-  //   workbox: {
-  //     enabled: true
-  //   }
-  // },
   loading: {
     color: '#2F80ED',
   }

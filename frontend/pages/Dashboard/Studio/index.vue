@@ -5,7 +5,7 @@
             :pagination="pagination"
             :sortItems="null"
             :searchPlaceholder="'Cari berdasarkan nama studio'"
-            :fields="filterFields"
+            :fields="fields"
             :isWrap="true"
             :showFilter="false"
             @fetchFilters="setFiltersAndFetch"
@@ -13,7 +13,7 @@
         />
 
         <div class="row">
-            <StudioTable 
+            <StudioTable
                 :isBusy="isBusy"
                 :role="role"
                 :fields="fields"
@@ -24,7 +24,7 @@
             />
 
         </div>
-        
+
         <Footer />
     </div>
 </template>

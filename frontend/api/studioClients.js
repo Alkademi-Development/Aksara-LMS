@@ -13,7 +13,7 @@ const authInterceptor = async (config) => {
 
     config.headers['Authorization'] = getAuthToken()
     config.headers['AppToken'] = await appToken.generateDAppToken()
-    config.headers['lmsId'] = localStorage.getItem('lmsId')
+    // config.headers['lmsId'] = localStorage.getItem('lmsId')
     return await config
 }
 
