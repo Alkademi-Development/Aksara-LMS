@@ -62,19 +62,12 @@
           />
         </div>
       </div>
-      <div class="editor-web flex-grow-1 d-flex flex-column" v-else-if="activeScreen === 'web'">
-        <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> HTML</div>
-        <!-- Monaco Editor -->
-        <div
-          class="editor-main flex-grow-1"
-          :style="{
-            maxHeight: panelControl.currentState === 'default'
-              ? 550 + 'px'
-              : panelControl.currentState === 'collapsed'
-              ? 100 + '%'
-              : 400 + 'px'
-          }"
-        >
+      <div class="editor-web flex-grow-1 d-flex" v-else-if="activeScreen === 'web'">
+        <!-- KIRI: HTML (panjang penuh) -->
+        <div class="editor-pane html-pane">
+          <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i>
+            {{ activeCode.toUpperCase() }}
+          </div>
           <VueMonacoEditor
             v-model="code"
             language="html"
@@ -83,7 +76,55 @@
               fontSize: 14,
               minimap: { enabled: false },
             }"
+            v-if="activeCode === 'html'"
           />
+          <VueMonacoEditor
+            v-model="code"
+            language="css"
+            theme="vs-light"
+            :options="{
+              fontSize: 14,
+              minimap: { enabled: false },
+            }"
+            v-else-if="activeCode === 'css'"
+          />
+          <VueMonacoEditor
+            v-model="code"
+            language="javascript"
+            theme="vs-light"
+            :options="{
+              fontSize: 14,
+              minimap: { enabled: false },
+            }"
+            v-else
+          />
+        </div>
+        <!-- KANAN: CSS + JAVASCRIPT (atas-bawah) -->
+        <div class="right-panes d-none d-md-block">
+          <div class="editor-pane css-pane d-none d-md-block">
+            <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> CSS</div>
+            <VueMonacoEditor
+              v-model="code"
+              language="css"
+              theme="vs-light"
+              :options="{
+                fontSize: 14,
+                minimap: { enabled: false },
+              }"
+            />
+          </div>
+          <div class="editor-pane js-pane">
+            <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> JavaScript</div>
+            <VueMonacoEditor
+              v-model="code"
+              language="javascript"
+              theme="vs-light"
+              :options="{
+                fontSize: 14,
+                minimap: { enabled: false },
+              }"
+            />
+          </div>
         </div>
       </div>
       <div class="editor-preview flex-grow-1" v-else>
@@ -93,26 +134,51 @@
             <i class="ri-code-s-slash-line mr-2"></i>
             <h4 class="editor-language font-weight-bold">Studio</h4>
           </div>
-          <ul class="editor-header-display d-md-flex align-items-center gap-2 m-0 d-none">
+          <ul class="editor-header-display d-flex align-items-center gap-2 m-0">
             <li>
-              <button type="button">
+              <button
+                type="button"
+                class="border-0 appearance-none"
+                :class="{ active: previewDevice === 'mobile' }"
+                @click="previewDevice = 'mobile'"
+                title="Mobile"
+              >
                 <i class="ri-smartphone-line"></i>
               </button>
             </li>
             <li>
-              <button type="button">
+              <button
+                type="button"
+                class="border-0 appearance-none"
+                :class="{ active: previewDevice === 'tablet' }"
+                @click="previewDevice = 'tablet'"
+                title="Tablet"
+              >
                 <i class="ri-tablet-line"></i>
               </button>
             </li>
             <li>
-              <button type="button">
+              <button
+                type="button"
+                class="border-0 appearance-none"
+                :class="{ active: previewDevice === 'desktop' }"
+                @click="previewDevice = 'desktop'"
+                title="Desktop"
+              >
                 <i class="ri-computer-line"></i>
               </button>
             </li>
           </ul>
         </div>
         <!-- Preview Web -->
-        <div class="preview-main flex-grow-1">
+        <div
+          class="preview-main"
+          :class="{
+            'preview-mobile': previewDevice === 'mobile',
+            'preview-tablet': previewDevice === 'tablet',
+            'preview-desktop': previewDevice === 'desktop'
+          }"
+        >
         </div>
       </div>
 
@@ -130,7 +196,7 @@
         }"
       >
         <!-- Resize Handler -->
-        <div class="resize-handler horizontal">
+        <div class="resize-handler horizontal" v-if="activeScreen === 'compiler'">
           <button type="button" class="bg-primary text-white rounded-top rounded-bottom-0 py-1" @click="togglePanelSize">
             <i
               :class="panelControl.currentState === 'default'
@@ -141,7 +207,40 @@
             ></i>
           </button>
         </div>
-        <div class="editor-panel-wrapper d-flex align-items-center justify-content-between">
+        <div class="editor-panel-wrapper position-relative d-flex align-items-center justify-content-between">
+          <!-- Panel Tab -->
+          <ul class="editor-panel-nav mb-2 editor-panel-web" v-if="activeScreen === 'web'">
+            <li class="editor-panel-nav-item">
+              <button
+                type="button"
+                class="editor-panel-nav-link"
+                :class="{ active: activeCode === 'html' }"
+                @click="activeCode = 'html';"
+              >
+                HTML
+              </button>
+            </li>
+            <li class="editor-panel-nav-item">
+              <button
+                type="button"
+                class="editor-panel-nav-link"
+                :class="{ active: activeCode === 'css' }"
+                @click="activeCode = 'css';"
+              >
+                CSS
+              </button>
+            </li>
+            <li class="editor-panel-nav-item">
+              <button
+                type="button"
+                class="editor-panel-nav-link"
+                :class="{ active: activeCode === 'javascript' }"
+                @click="activeCode = 'javascript';"
+              >
+                JavaScript
+              </button>
+            </li>
+          </ul>
           <!-- Panel Control -->
           <div class="editor-panel-control d-none d-md-flex align-items-center gap-2">
             <!-- Panel Dropdown Select Language -->
@@ -308,6 +407,8 @@ export default {
       isLoading: true,
       isModuleVisible: false,
       activeTab: 'input',
+      activeCode: 'html',
+      previewDevice: 'desktop',
       code: 'const noop = () => {}',
       project: {
         name: 'Proyek Dummy',
@@ -324,7 +425,6 @@ export default {
       panelControl: {
         currentState: 'default',
         defaultHeight: 90,
-        collapsedHeight: 20,
         expandedHeight: 350,
       }
     }
@@ -386,18 +486,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.fade-slide-enter {
-  transform: translateX(100%); /* Muncul dari kanan */
-  opacity: 0;
-}
-
-.fade-slide-leave-to {
-  transform: translateX(100%); /* Menghilang ke kanan */
-  opacity: 0;
-}
 </style>

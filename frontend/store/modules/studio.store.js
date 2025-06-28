@@ -19,7 +19,7 @@ export default {
     namespaced: true,
     state: {
         theme: 'light',
-        activeScreen: 'compiler',
+        activeScreen: 'web',
         viewer: {
           html: '',
           css: '',
