@@ -37,7 +37,7 @@
         <div class="editor-header px-3 border-bottom">
           <div class="d-flex align-items-center gap-2">
             <i class="ri-code-s-slash-line mr-2"></i>
-            <h4 class="editor-language font-weight-bold">{{ selectedLanguage }}</h4>
+            <h4 class="editor-language font-weight-bold">{{ selectedLanguage?.toUpperCase() }}</h4>
           </div>
         </div>
         <!-- Monaco Editor -->
@@ -52,12 +52,13 @@
           }"
         >
           <VueMonacoEditor
-            v-model="code"
+            v-model="compilerCode"
             language="javascript"
             theme="vs-light"
             :options="{
               fontSize: 14,
               minimap: { enabled: false },
+              wordWrap: 'on',
             }"
           />
         </div>
@@ -69,61 +70,65 @@
             {{ activeCode.toUpperCase() }}
           </div>
           <VueMonacoEditor
-            v-model="code"
+            v-model="code.html"
             language="html"
             theme="vs-light"
             :options="{
               fontSize: 14,
               minimap: { enabled: false },
+              wordWrap: 'on',
             }"
             v-if="activeCode === 'html'"
           />
           <VueMonacoEditor
-            v-model="code"
+            v-model="code.css"
             language="css"
             theme="vs-light"
             :options="{
               fontSize: 14,
               minimap: { enabled: false },
+              wordWrap: 'on',
             }"
             height="50%"
             v-else-if="activeCode === 'css'"
           />
           <VueMonacoEditor
-            v-model="code"
+            v-model="code.javascript"
             language="javascript"
             theme="vs-light"
             :options="{
               fontSize: 14,
               minimap: { enabled: false },
+              wordWrap: 'on',
             }"
             height="50%"
             v-else
           />
         </div>
-        <!-- KANAN: CSS + JAVASCRIPT (atas-bawah) -->
         <div class="right-panes d-none d-md-flex">
           <div class="editor-pane css-pane">
             <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> CSS</div>
             <VueMonacoEditor
-              v-model="code"
+              v-model="code.css"
               language="css"
               theme="vs-light"
               :options="{
                 fontSize: 14,
                 minimap: { enabled: false },
+                wordWrap: 'on',
               }"
             />
           </div>
           <div class="editor-pane js-pane">
             <div class="pane-header"><i class="ri-code-s-slash-line mr-2"></i> JavaScript</div>
             <VueMonacoEditor
-              v-model="code"
+              v-model="code.javascript"
               language="javascript"
               theme="vs-light"
               :options="{
                 fontSize: 14,
                 minimap: { enabled: false },
+                wordWrap: 'on',
               }"
             />
           </div>
@@ -181,6 +186,7 @@
             'preview-desktop': previewDevice === 'desktop'
           }"
         >
+          <iframe :srcdoc="executedCode" frameborder="0" width="100%" height="100%" />
         </div>
       </div>
 
@@ -274,13 +280,22 @@
           <!-- Control Buttons -->
           <div class="editor-panel-actions mt-2 d-flex align-items-center justify-content-between justify-content-md-end w-100">
             <div class="d-flex align-items-center">
-              <button class="btn btn-disabled mr-2" @click="runCode">
+              <button
+                class="btn mr-2"
+                :class="[detailUser?.kind === 4 ? 'btn-primary' : 'btn-disabled']"
+                :disabled="detailUser?.kind != 4"
+              >
                 <i class="ri-save-line"></i>
               </button>
-              <button class="btn btn-primary mr-2">
+              <button class="btn btn-primary mr-2" @click="runCode">
                 <i class="ri-play-line"></i>
               </button>
-              <button class="btn btn-disabled" @click="submitCode">
+              <button
+                class="btn"
+                :class="[detailUser?.kind === 4 ? 'btn-primary' : 'btn-disabled']"
+                :disabled="detailUser?.kind != 4"
+                @click="submitCode"
+              >
                 Submit
               </button>
             </div>
@@ -386,6 +401,7 @@ import useAuthMixin from '~/mixins/useAuthMixin';
 import Sidebar from '~/components/template/studio/Sidebar.vue';
 import ModuleIFrame from '~/components/template/studio/ModuleIFrame.vue';
 import SelectDropdown from '~/components/template/studio/SelectDropdown.vue';
+import { TEMPLATE_COMPILER, TEMPLATE_CSS, TEMPLATE_HTML, TEMPLATE_JAVASCRIPT } from '~/commons/constants/studio';
 
 export default {
   components: {
@@ -404,6 +420,11 @@ export default {
     return { metronomId }
   },
   mixins: [useAuthMixin],
+  watch: {
+    'code.html': 'updatePreview',
+    'code.css': 'updatePreview',
+    'code.javascript': 'updatePreview',
+  },
   data() {
     return {
       isLoading: true,
@@ -411,14 +432,21 @@ export default {
       activeTab: 'input',
       activeCode: 'html',
       previewDevice: 'desktop',
-      code: 'const noop = () => {}',
+      executedCode: '',
+      compilerArgs: {},
+      compilerCode: TEMPLATE_COMPILER,
+      code: {
+        html: TEMPLATE_HTML,
+        css: TEMPLATE_CSS,
+        javascript: TEMPLATE_JAVASCRIPT,
+      },
       project: {
         name: 'Proyek Dummy',
       },
       activeTab: "input",
       tabs: ['Input', 'Output', 'Results'],
       moduleUrl: 'https://drive.google.com/file/d/1S8TWF09kMViN-EHsTjJKUktRU193Pgse/preview?usp=drive_link',
-      selectedLanguage: "JavaScript",
+      selectedLanguage: "javascript",
       modules: [
         { id: 1, name: 'Module 1', description: 'Deskripsi modul 1' },
         { id: 2, name: 'Module 2', description: 'Deskripsi modul 2' },
@@ -428,19 +456,23 @@ export default {
         currentState: 'default',
         defaultHeight: 90,
         expandedHeight: 350,
-      }
+      },
+      detailUser: null,
     }
   },
   computed: {
     ...mapState({
       authState: (state) => state.Auth,
       compilerState: (state) => state.Compiler,
+      servicesState: (state) => state.Services,
       activeScreen: (state) => state.Studio.activeScreen
     })
   },
   mounted() {
     this.initialCompiler();
     this.updatePanelControl();
+    this.updatePreview();
+    this.getUserDetail();
     window.addEventListener("resize", this.updatePanelControl);
   },
   beforeDestroy() {
@@ -454,13 +486,43 @@ export default {
         // getServerTime: 'Alkamedia/getServerTime',
         // getExt: 'Alkamedia/getExt',
         // setModuleOpen: 'Studio/setModuleOpen',
+        setActiveScreen: 'Studio/setActiveScreen',
     }),
+    updatePreview() {
+      // Ekstrak head/body kalau perlu, atau lakukan penggabungan template di sini
+      this.executedCode = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+              ${this.code.css || ''}
+            </style>
+          </head>
+          <body>
+            ${this.code.html || ''}
+            <script>
+              ${this.code.javascript || ''}
+            <\/script>
+          </body>
+        </html>
+      `;
+    },
+    async getUserDetail() {
+      await this.$store.dispatch('Services/authorize');
 
+      if (!this.servicesState.status) {
+        console.error('Failed to fetch user detail', this.servicesState.message);
+      } else {
+        this.detailUser = this.servicesState?.detail_auth;
+      }
+    },
     async initialCompiler() {
 
     },
     runCode() {
-
+      if (this.activeScreen === 'web') this.setActiveScreen('preview');
     },
     submitCode() {
 
