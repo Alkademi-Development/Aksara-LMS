@@ -53,6 +53,7 @@
         :detail-user="detailUser"
         :active-code.sync="activeCode"
         :is-module-visible.sync="isModuleVisible"
+        @toggle-panel-size="togglePanelSize"
         @run-code="runCode"
         @submit-code="submitCode"
       />

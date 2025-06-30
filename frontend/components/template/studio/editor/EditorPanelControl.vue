@@ -11,7 +11,7 @@
     >
       <!-- Resize Handler -->
       <div class="resize-handler horizontal" v-if="activeScreen === 'compiler'">
-        <button type="button" class="bg-primary text-white rounded-top rounded-bottom-0 py-1" @click="togglePanelSize">
+        <button type="button" class="bg-primary text-white rounded-top rounded-bottom-0 py-1" @click="$emit('toggle-panel-size')">
           <i :class="panelControl.currentState === 'default'
             ? 'ri-arrow-up-s-line'
             : 'ri-arrow-down-s-line'"
