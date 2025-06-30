@@ -9,7 +9,7 @@
       <Navbar />
 
       <!-- Slot for Page Content -->
-      <div class="studio-content">
+      <div class="studio-content h-100">
         <Nuxt />
       </div>
     </div>
