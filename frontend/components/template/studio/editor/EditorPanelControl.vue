@@ -57,14 +57,14 @@
           <!-- Panel Dropdown Select Language -->
           <SelectDropdown
             v-model="selectedLanguage"
-            :options="[
-              // { label: 'Golang', value: 'golang' },
-              // { label: 'Javascript', value: 'javascript' },
-              // { label: 'PHP', value: 'php' },
-              // { label: 'Python', value: 'python' }
-            ]"
+            :options="activeScreen === 'compiler' ? [
+              { label: 'Golang', value: 'golang' },
+              { label: 'Javascript', value: 'javascript' },
+              { label: 'PHP', value: 'php' },
+              { label: 'Python', value: 'python' }
+            ] : []"
+            :label="activeScreen === 'compiler' ? selectedLanguage : 'Web'"
             :positionMenu="['default', 'collapsed'].includes(panelControl?.currentState) ? 'top' : 'bottom'"
-            label="Web"
           />
           <!-- Panel Tab -->
           <ul class="editor-panel-nav mb-2" v-if="activeScreen === 'compiler'">
@@ -85,12 +85,12 @@
           <div class="d-flex align-items-center">
             <button
               class="btn mr-2"
-              :class="[detailUser?.kind === 4 ? 'btn-primary' : 'btn-disabled']"
+              :class="[detailUser?.kind === 4 ? 'btn-lighter-primary' : 'btn-disabled']"
               :disabled="detailUser?.kind != 4"
             >
               <i class="ri-save-line"></i>
             </button>
-            <button class="btn btn-primary mr-2" @click="$emit('run-code')">
+            <button class="btn btn-lighter-primary mr-2" @click="$emit('run-code')">
               <i class="ri-play-line"></i>
             </button>
             <button
@@ -114,13 +114,13 @@
           <!-- Panel Dropdown Select Language -->
           <SelectDropdown
             v-model="selectedLanguage"
-            :options="[
+            :options="activeScreen === 'compiler' ? [
               { label: 'Golang', value: 'golang' },
               { label: 'Javascript', value: 'javascript' },
               { label: 'PHP', value: 'php' },
               { label: 'Python', value: 'python' }
-            ]"
-            label="Web"
+            ] : []"
+            :label="activeScreen === 'compiler' ? selectedLanguage : 'Web'"
             class="w-100"
           />
           <!-- Panel Tab -->

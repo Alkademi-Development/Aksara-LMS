@@ -10,7 +10,7 @@
     </button>
     <transition name="fade">
       <div
-        v-show="isOpen"
+        v-show="isOpen && options?.length > 0"
         class="select-dropdown-menu shadow"
         :class="[positionMenu]"
         @mousedown.prevent
