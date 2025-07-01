@@ -57,14 +57,10 @@
           <!-- Panel Dropdown Select Language -->
           <SelectDropdown
             v-model="selectedLanguage"
-            :options="activeScreen === 'compiler' ? [
-              { label: 'Golang', value: 'golang' },
-              { label: 'Javascript', value: 'javascript' },
-              { label: 'PHP', value: 'php' },
-              { label: 'Python', value: 'python' }
-            ] : []"
+            :options="activeScreen === 'compiler' ? languages : []"
             :label="activeScreen === 'compiler' ? selectedLanguage : 'Web'"
             :positionMenu="['default', 'collapsed'].includes(panelControl?.currentState) ? 'top' : 'bottom'"
+            @change="$emit('update:selectedLanguage', $event)"
           />
           <!-- Panel Tab -->
           <ul class="editor-panel-nav mb-2" v-if="activeScreen === 'compiler'">
@@ -114,12 +110,7 @@
           <!-- Panel Dropdown Select Language -->
           <SelectDropdown
             v-model="selectedLanguage"
-            :options="activeScreen === 'compiler' ? [
-              { label: 'Golang', value: 'golang' },
-              { label: 'Javascript', value: 'javascript' },
-              { label: 'PHP', value: 'php' },
-              { label: 'Python', value: 'python' }
-            ] : []"
+            :options="activeScreen === 'compiler' ? languages : []"
             :label="activeScreen === 'compiler' ? selectedLanguage : 'Web'"
             class="w-100"
           />
@@ -209,6 +200,10 @@ export default {
     selectedLanguage: {
       type: String,
       default: ''
+    },
+    languages: {
+      type: Array,
+      default: []
     },
     panelControl: {
       type: Object,

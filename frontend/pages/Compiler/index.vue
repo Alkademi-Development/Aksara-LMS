@@ -49,7 +49,8 @@
       <!-- Editor Panel Control -->
       <EditorPanelControl
         :panel-control="panelControl"
-        :selected-language="selectedLanguage"
+        :selected-language.sync="selectedLanguage"
+        :languages="languages"
         :detail-user="detailUser"
         :active-code.sync="activeCode"
         :is-module-visible.sync="isModuleVisible"
@@ -105,6 +106,12 @@ export default {
       previewDevice: 'desktop',
       executedCode: '',
       formTestCases: [],
+      languages: [
+        { label: 'Golang', value: 'golang' },
+        { label: 'Javascript', value: 'javascript' },
+        { label: 'PHP', value: 'php' },
+        { label: 'Python', value: 'python' }
+      ],
       compilerCode: TEMPLATE_COMPILER,
       code: {
         html: TEMPLATE_HTML,
@@ -185,6 +192,7 @@ export default {
       this.formTestCases = [
         { type: 'text', name: 'x', value: '', label: "Masukkan argumen 'x' disini" },
         { type: 'number', name: 'y', value: '', label: "Masukkan argumen 'y' disini" },
+        { type: 'text', name: 'z', value: '', label: "Masukkan argumen 'z' disini" },
       ]
     },
     async initialCompiler() {
@@ -214,7 +222,7 @@ export default {
       const isMobile = window.innerWidth <= 576;
       const isTablet = window.innerWidth <= 768;
       this.panelControl.defaultHeight = 70;
-      this.panelControl.expandedHeight = isTablet ? isMobile ? 500 : 400 : 350;
+      this.panelControl.expandedHeight = isMobile ? 500 : 450;
     },
     togglePanelSize() {
       this.panelControl.currentState =

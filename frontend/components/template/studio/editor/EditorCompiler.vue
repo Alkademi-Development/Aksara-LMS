@@ -13,7 +13,7 @@
         :style="{
           maxHeight: panelControl.currentState === 'default'
             ? 500 + 'px'
-            : 300 + 'px'
+            : 150 + 'px'
         }"
       >
         <VueMonacoEditor
