@@ -140,12 +140,14 @@
         <!-- Input -->
         <div class="editor-input" v-if="activeTab === 'input'">
           <b-form-group
-              label="Masukkan argumen 'x' disini"
-              label-for="x">
+            :label="testCase?.label"
+            :label-for="testCase?.name"
+            v-for="testCase in Array.isArray(testCases) ? testCases : []"
+          >
               <b-form-input
-                  id="x"
-                  name="x"
-                  value=""
+                  :id="testCase?.name"
+                  :name="testCase?.name"
+                  :value="testCase?.value"
               ></b-form-input>
           </b-form-group>
         </div>
@@ -219,7 +221,11 @@ export default {
     activeCode: {
       type: String,
       default: 'html',
-    }
+    },
+    testCases: {
+      type: [Array, Object],
+      default: () => []
+    },
   },
   computed: {
     ...mapState({
