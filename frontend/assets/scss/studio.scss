@@ -43,6 +43,15 @@ p,
   background-color: var(--bs-light);
   color: white;
 }
+.btn-lighter-primary {
+  background-color: var(--lighter);
+  color: var(--bs-primary);
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--dark);
+  }
+}
 
 /**
 * Fade Animation
@@ -81,6 +90,17 @@ p,
   border: none;
   appearance: none;
   outline: none;
+}
+
+.profile-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background-color: var(--bs-light);
+  font-size: 1rem;
 }
 
 .studio-layout {

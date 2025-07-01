@@ -14,7 +14,8 @@
         >
           <i :class="studioTheme === 'light' ? 'ri-sun-fill' : 'ri-moon-fill'"></i>
         </button> -->
-        <img src="https://drive.alkademi.id/v1/upload/profile/1696868895427.jpeg" width="40" height="40" class="img-fluid rounded-pill" alt="Profil User">
+        <img :src="user?.photo" width="40" height="40" class="img-fluid rounded-pill" alt="Profil User" v-if="user?.photo">
+        <span class="profile-text" v-else>{{ user?.name.split('')[0] }}</span>
       </div>
 
     </div>
@@ -29,9 +30,8 @@ export default {
   mixins: [useThemeMixin],
   computed: {
     ...mapState({
-      user: (state) => state.Auth.user,
+      user: (state) => state.Services.detail_auth,
       showTimer: (state) => state.Alkamedia.showTimer,
-      studioTheme: (state) => state.Studio.theme,
     }),
     localUserRole() {
       return this.$store.getters['Auth/localUserRole']

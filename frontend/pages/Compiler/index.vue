@@ -53,6 +53,7 @@
         :detail-user="detailUser"
         :active-code.sync="activeCode"
         :is-module-visible.sync="isModuleVisible"
+        :test-cases="formTestCases"
         @toggle-panel-size="togglePanelSize"
         @run-code="runCode"
         @submit-code="submitCode"
@@ -103,7 +104,7 @@ export default {
       activeCode: 'html',
       previewDevice: 'desktop',
       executedCode: '',
-      compilerArgs: {},
+      formTestCases: [],
       compilerCode: TEMPLATE_COMPILER,
       code: {
         html: TEMPLATE_HTML,
@@ -140,6 +141,7 @@ export default {
     this.updatePanelControl();
     this.updatePreview();
     this.getUserDetail();
+    this.initTestCases();
     window.addEventListener("resize", this.updatePanelControl);
   },
   beforeDestroy() {
@@ -179,10 +181,29 @@ export default {
         this.detailUser = this.servicesState?.detail_auth;
       }
     },
+    async initTestCases() {
+      this.formTestCases = [
+        { type: 'text', name: 'x', value: '', label: "Masukkan argumen 'x' disini" },
+        { type: 'number', name: 'y', value: '', label: "Masukkan argumen 'y' disini" },
+      ]
+    },
     async initialCompiler() {
 
     },
     runCode() {
+      if (this.activeScreen === 'compiler') {
+        const hasEmpty = Array.from(this.formTestCases).some(testCase => testCase?.value == '');
+        if (hasEmpty) {
+          this.$bvToast.toast('Please input all arguments before running the code!', {
+            title: 'Missing Argument',
+            variant: 'danger',
+            solid: true,
+            toaster: 'b-toaster-bottom-right', // Bisa 'b-toaster-top-right', dsb
+            autoHideDelay: 3000,
+          });
+          return;
+        }
+      }
       if (this.activeScreen === 'web') this.setActiveScreen('preview');
     },
     submitCode() {
